@@ -612,16 +612,11 @@
    ========================================== */
 
 /* 시나리오 메시지 공통 스타일 */
-.chat-message.ai .chat-message-content {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/* 시나리오 텍스트 하이라이트 (CSS로 처리 가능한 부분) */
 .chat-message.ai .chat-message-text {
   line-height: 1.7;
 }
 
-/* 분석 메시지 - 제목 강조 */
+/* 시나리오 메시지 - 첫 줄 (제목) 노란색 강조 */
 .chat-scenario-analysis .chat-message-text::first-line,
 .chat-scenario-wo .chat-message-text::first-line,
 .chat-scenario-checklist .chat-message-text::first-line,
@@ -630,17 +625,6 @@
 .chat-scenario-simulation .chat-message-text::first-line {
   color: #FFD93D;
   font-weight: 600;
-}
-
-/* 시나리오 메시지 배경 그라데이션 */
-.chat-scenario-analysis .chat-message-content,
-.chat-scenario-wo .chat-message-content,
-.chat-scenario-checklist .chat-message-content,
-.chat-scenario-history .chat-message-content,
-.chat-scenario-plan .chat-message-content,
-.chat-scenario-simulation .chat-message-content {
-  background: linear-gradient(135deg, #1e2a3a 0%, #263545 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* ==========================================
