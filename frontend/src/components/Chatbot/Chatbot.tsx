@@ -403,8 +403,14 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onNavigate }) => {
 
         {/* 메시지 영역 */}
         <div className="chat-messages">
-          {messages.map((msg) => (
-            <div key={msg.id} className={`chat-message ${msg.sender}`}>
+          {messages.map((msg) => {
+            // 시나리오 타입 체크
+            const scenarioTypes = ['analysis', 'wo', 'checklist', 'history', 'plan', 'simulation'];
+            const isScenario = msg.type && scenarioTypes.includes(msg.type);
+            const scenarioClass = isScenario ? `chat-scenario-${msg.type}` : '';
+
+            return (
+            <div key={msg.id} className={`chat-message ${msg.sender} ${scenarioClass}`}>
               <div className="chat-message-avatar">
                 {msg.sender === 'ai' ? '🤖' : '👤'}
               </div>
@@ -430,7 +436,8 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onNavigate }) => {
                 <div className="chat-message-time">{msg.time}</div>
               </div>
             </div>
-          ))}
+            );
+          })}
 
           {/* 타이핑 인디케이터 */}
           {isTyping && (

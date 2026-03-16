@@ -56,16 +56,15 @@ export const generateScenarioResponse = (query: string): ChatScenarioResponse | 
   // 시나리오 1-1: AICC 2호기 고압 경보 원인 분석
   if (matchesKeywords(query, SCENARIO_1_ANALYSIS_KEYWORDS)) {
     return {
-      text: `🔍 **AICC-CHL-002 이상 분석**
+      text: `🔍 AICC-CHL-002 이상 분석
+고압: 32.1 bar ▲ (임계값 30.0 초과)
+냉각수 온도: 35.2°C (+4.1°C ↑) / 전류: 148A
 
-**고압:** 32.1 bar ▲ (임계값 30.0 초과)
-**냉각수 온도:** 35.2°C (+4.1°C ↑) / **전류:** 148A
+🤖 AI 추정 원인 (유사 4건 매칭)
+1순위 — 냉각탑 팬 효율 저하:스케일
+2순위 — 냉매 과충전 가능성
 
-🤖 **AI 추정 원인** (유사 4건 매칭)
-**1순위** — 냉각탑 팬 효율 저하 : 스케일
-**2순위** — 냉매 과충전 가능성
-
-📌 **2024.08 관제탑 1호기 동일 증상**
+📌 2024.08 관제탑 1호기 동일 증상
 → 베어링 교체 후 2h 내 정상 복귀`,
       type: 'analysis',
       actions: [
@@ -79,11 +78,10 @@ export const generateScenarioResponse = (query: string): ChatScenarioResponse | 
   // 시나리오 1-2: WO(작업지시서) 발행
   if (matchesKeywords(query, SCENARIO_1_WO_KEYWORDS)) {
     return {
-      text: `📄 **WO-2026-0316-004 생성 완료**
-
-**설비:** AICC-CHL-002 / 긴급 정비
-**담당:** 이시설 (현장팀) 즉시 배정
-✅ **담당자 알림 발송 완료**`,
+      text: `📄 WO-2026-0316-004 생성 완료
+설비: AICC-CHL-002 / 긴급 정비
+담당: 이시설 (현장팀) 즉시 배정
+✅ 담당자 알림 발송 완료`,
       type: 'wo',
       actions: [
         { label: 'WO 상세 보기', action: 'wo_detail' },
@@ -95,19 +93,16 @@ export const generateScenarioResponse = (query: string): ChatScenarioResponse | 
   // 시나리오 2-1: 점검일지 자동 완성
   if (matchesKeywords(query, SCENARIO_2_CHECKLIST_KEYWORDS)) {
     return {
-      text: `⚙️ **점검일지 자동 완성** (2026.03.16)
+      text: `⚙️ 점검일지 자동 완성 (2026.03.16)
 ━━━━━━━━━━━━━━━━━━━━━
-
-**관제탑-CHL-001**
+관제탑-CHL-001
 고압 24.8 bar ✅  저압 4.2 bar ✅
 전류 82A (88%)  열류 0.91  진동 0.8mm/s ✅
-
-**관제탑-CHL-002**
+관제탑-CHL-002
 고압 25.1 bar ✅  저압 4.1 bar ✅
 전류 85A (91%)  열류 0.90  진동 1.1mm/s ✅
-
-📊 **BEMS 일사용량 자동 반영:** 24 MWh
-✅ **3종 점검표 모두 기입 완료**`,
+📊 BEMS 일사용량 자동 반영: 24 MWh
+3종 점검표 모두 기입 완료 ✅`,
       type: 'checklist',
       actions: [
         { label: '점검일지 확인', action: 'p8' },
@@ -120,14 +115,12 @@ export const generateScenarioResponse = (query: string): ChatScenarioResponse | 
   // 시나리오 2-2: 이상 이력 조회
   if (matchesKeywords(query, SCENARIO_2_HISTORY_KEYWORDS)) {
     return {
-      text: `📁 **이상 이력** (2025.12 ~ 2026.03)
-**총 3건** — 긴급 정비 0건 (경미)
-
-• 2026.02.11 CHL-001 저압경보 → 냉매보충
-• 2026.01.28 CHL-002 진동이상 → 윤활보충
-• 2025.12.19 CHL-001 고압주의 → 에어빼기
-
-⚠️ **CHL-001 저압 이상 반복 → 냉매누설 정밀확인 권고**`,
+      text: `📁 이상 이력 (2025.12 ~ 2026.03)
+총 3건 — 긴급 정비 0건 (경미)
+2026.02.11 CHL-001 저압경보 → 냉매보충
+2026.01.28 CHL-002 진동이상 → 윤활보충
+2025.12.19 CHL-001  고압주의 → 에어빼기
+⚠️ CHL-001 저압 이상 반복 → 냉매누설 정밀확인 권고`,
       type: 'history',
       actions: [
         { label: '상세 이력 보기', action: 'p4' },
@@ -139,19 +132,16 @@ export const generateScenarioResponse = (query: string): ChatScenarioResponse | 
   // 시나리오 3-1: 성수기 대비 점검 계획
   if (matchesKeywords(query, SCENARIO_3_PLAN_KEYWORDS)) {
     return {
-      text: `😎 **성수기 대비 점검 계획** (6월 완료)
+      text: `😎 성수기 대비 점검 계획 (6월 완료)
 7~8월 인천공항 일 이용객 ~25만명 피크
 
-🔴 **6/1~10  AICC 1·2호기**
+🔴 6/1~10  AICC 1·2호기
 냉각탑 팬 베어링·벨트 / 스케일 세정
-
-🔴 **6/1~10  공항청사 1·2호기**
+🔴 6/1~10  공항청사 1·2호기
 압축기 진동 6점 측정 / 오일 분석
-
-🟠 **6/11~20  관제탑 1·2호기**
+🟠 6/11~20  관제탑 1·2호기
 전류·열류 부하 시험 / 임계값 재설정
-
-✅ **일정 등록 및 WO 일괄 생성 가능**`,
+✅ 일정 등록 및 WO 일괄 생성 가능`,
       type: 'plan',
       actions: [
         { label: '일정 등록', action: 'schedule' },
@@ -164,16 +154,12 @@ export const generateScenarioResponse = (query: string): ChatScenarioResponse | 
   // 시나리오 3-2: 냉방 부하 여유율 시뮬레이션
   if (matchesKeywords(query, SCENARIO_3_SIMULATION_KEYWORDS)) {
     return {
-      text: `📊 **냉방 부하 여유율 시뮬레이션**
-
-**전체 용량** 364.86 USRT / **피크 부하** ~320 USRT
-
-**AICC 1대 이탈** → 282 USRT
-⚠️ 피크 시 부하율 107~117% — **단기만 가능**
-
-**관제탑 1대 이탈** → 325 USRT ✅ **정상 운영**
-
-💡 **AICC 예비 부품(베어링·오일필터) 사전 확보 권고**`,
+      text: `📊 냉방 부하 여유율 시뮬레이션
+전체 용량 364.86 USRT / 피크 부하 ~320 USRT
+AICC 1대 이탈 → 282 USRT
+⚠️ 피크 시 부하율 107~117% — 단기만 가능
+관제탑 1대 이탈 → 325 USRT ✅ 정상 운영
+💡 AICC 예비 부품(베어링·오일필터) 사전 확보 권고`,
       type: 'simulation',
       actions: [
         { label: '예비품 확인', action: 'parts' },

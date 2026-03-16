@@ -497,3 +497,28 @@
     padding: 12px 16px;
   }
 }
+
+/* ==========================================
+   시나리오 메시지 강조 컬러
+   ========================================== */
+
+/* 시나리오 메시지 공통 스타일 */
+.chatbot-fs-message.ai .chatbot-fs-bubble {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 시나리오 텍스트 하이라이트 */
+.chatbot-fs-message.ai .chatbot-fs-text {
+  line-height: 1.7;
+}
+
+/* 시나리오 메시지 배경 그라데이션 */
+.chatbot-fs-scenario-analysis .chatbot-fs-bubble,
+.chatbot-fs-scenario-wo .chatbot-fs-bubble,
+.chatbot-fs-scenario-checklist .chatbot-fs-bubble,
+.chatbot-fs-scenario-history .chatbot-fs-bubble,
+.chatbot-fs-scenario-plan .chatbot-fs-bubble,
+.chatbot-fs-scenario-simulation .chatbot-fs-bubble {
+  background: linear-gradient(135deg, #1e2a3a 0%, #263545 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

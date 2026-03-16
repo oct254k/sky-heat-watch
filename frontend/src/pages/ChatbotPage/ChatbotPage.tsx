@@ -421,8 +421,14 @@ export const ChatbotPage: React.FC<ChatbotPageProps> = ({ onNavigate }) => {
           <div className="chatbot-fs-chat">
             {/* 메시지 목록 */}
             <div className="chatbot-fs-messages">
-              {messages.map((msg) => (
-                <div key={msg.id} className={`chatbot-fs-message ${msg.sender}`}>
+              {messages.map((msg) => {
+                // 시나리오 타입 체크
+                const scenarioTypes = ['analysis', 'wo', 'checklist', 'history', 'plan', 'simulation'];
+                const isScenario = msg.type && scenarioTypes.includes(msg.type);
+                const scenarioClass = isScenario ? `chatbot-fs-scenario-${msg.type}` : '';
+
+                return (
+                <div key={msg.id} className={`chatbot-fs-message ${msg.sender} ${scenarioClass}`}>
                   <div className="chatbot-fs-avatar">
                     {msg.sender === 'ai' ? '🤖' : '👤'}
                   </div>
@@ -448,7 +454,8 @@ export const ChatbotPage: React.FC<ChatbotPageProps> = ({ onNavigate }) => {
                     <div className="chatbot-fs-time">{msg.time}</div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
 
               {/* 타이핑 인디케이터 */}
               {isTyping && (
