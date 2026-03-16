@@ -16,6 +16,10 @@ import { SettingsPage } from './pages/SettingsPage';
 import { InspectionLogPage } from './pages/InspectionLogPage';
 import { OverviewPage } from './pages/OverviewPage';
 import { AIPredictionPage } from './pages/AIPredictionPage';
+import { ChatbotPage } from './pages/ChatbotPage';
+
+// Components
+import { Chatbot } from './components/Chatbot';
 
 // Page props type
 interface PageProps {
@@ -33,6 +37,7 @@ const pages: Record<string, React.ComponentType<PageProps>> = {
   p7: OverviewPage as React.ComponentType<PageProps>,      // 연동 현황
   p8: InspectionLogPage as React.ComponentType<PageProps>, // 점검일지
   p9: AIPredictionPage as React.ComponentType<PageProps>,  // AI 예측 분석
+  p10: ChatbotPage as React.ComponentType<PageProps>,      // AI 챗봇
 };
 
 // Page titles (화면설계서 기준)
@@ -46,6 +51,7 @@ const pageTitles: Record<string, { title: string; subtitle: string }> = {
   p7: { title: '연동 현황', subtitle: 'BEMS·DDC·Century 연동 상태' },
   p8: { title: '점검일지', subtitle: '일일/주간/월간 점검일지 자동화' },
   p9: { title: 'AI 예측 분석', subtitle: '장비 고장 예측·패턴 분석·수명 추적' },
+  p10: { title: 'AI 챗봇', subtitle: '설비 상태·알람·점검일지 질의응답' },
 };
 
 function App() {
@@ -121,32 +127,39 @@ function App() {
   );
 
   return (
-    <Layout
-      gnb={
-        <GNB
-          isDark={isDark}
-          onThemeToggle={handleThemeToggle}
-          userName="김관리"
-          userRole="관리자"
-          userDept="시설관리팀"
-          onLogout={handleLogout}
-          onExport={handleExport}
-          isAdminMode={isAdminMode}
-          onAdminModeToggle={handleAdminModeToggle}
-        />
-      }
-      sidebar={
-        <Sidebar
-          activePage={activePage}
-          onPageChange={handlePageChange}
-          alarmCount={alarmCount}
-          uptimePercent={99.8}
-        />
-      }
-      header={Header}
-    >
-      <CurrentPage isAdminMode={isAdminMode} />
-    </Layout>
+    <>
+      <Layout
+        gnb={
+          <GNB
+            isDark={isDark}
+            onThemeToggle={handleThemeToggle}
+            userName="김관리"
+            userRole="관리자"
+            userDept="시설관리팀"
+            onLogout={handleLogout}
+            onExport={handleExport}
+            isAdminMode={isAdminMode}
+            onAdminModeToggle={handleAdminModeToggle}
+          />
+        }
+        sidebar={
+          <Sidebar
+            activePage={activePage}
+            onPageChange={handlePageChange}
+            alarmCount={alarmCount}
+            uptimePercent={99.8}
+          />
+        }
+        header={Header}
+      >
+        <CurrentPage isAdminMode={isAdminMode} />
+      </Layout>
+
+      {/* AI 챗봇 플로팅 버튼 (챗봇 페이지가 아닐 때만 표시) */}
+      {activePage !== 'p10' && (
+        <Chatbot onNavigate={handlePageChange} />
+      )}
+    </>
   );
 }
 

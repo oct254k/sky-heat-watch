@@ -70,6 +70,13 @@ const icons = {
       <circle cx="12" cy="6" r="1" />
     </svg>
   ),
+  // p10: AI 챗봇 - 채팅 버블
+  chat: (
+    <svg viewBox="0 0 24 24">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+      <path d="M8 10h.01M12 10h.01M16 10h.01" />
+    </svg>
+  ),
 };
 
 // 네비게이션 그룹 및 아이템 정의
@@ -109,9 +116,10 @@ const navigationGroups: NavGroup[] = [
     ],
   },
   {
-    label: 'AI 분석',
+    label: 'AI 지원',
     items: [
       { id: 'p9', label: 'AI 예측 분석', icon: 'brain' },
+      { id: 'p10', label: 'AI 챗봇', icon: 'chat' },
     ],
   },
   {

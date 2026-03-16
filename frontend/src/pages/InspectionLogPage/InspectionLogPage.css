@@ -432,4 +432,386 @@ body.dark .log-table tbody tr:hover {
   background: var(--surface3);
 }
 
+/* 편집 안내 메시지 */
+.edit-guide {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  background: rgba(52, 152, 219, 0.1);
+  border: 1px solid rgba(52, 152, 219, 0.3);
+  border-radius: var(--r);
+  font-size: 12px;
+  color: var(--txt2);
+}
+
+.edit-guide svg {
+  width: 16px;
+  height: 16px;
+  color: var(--iafc-blue);
+  flex-shrink: 0;
+}
+
+.edit-guide strong {
+  color: var(--iafc-blue);
+}
+
+/* 수기 수정 건수 배지 */
+.edit-count-badge {
+  background: rgba(243, 156, 18, 0.15);
+  color: var(--warn);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+/* 편집 가능한 셀 */
+.cell-value-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: default;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: background-color 0.15s ease;
+}
+
+.cell-editable {
+  cursor: pointer;
+}
+
+.cell-editable:hover {
+  background: rgba(52, 152, 219, 0.1);
+}
+
+/* 수정된 셀 스타일 */
+.cell-edited {
+  background: rgba(243, 156, 18, 0.2);
+  border: 1px dashed var(--warn);
+}
+
+.cell-edited:hover {
+  background: rgba(243, 156, 18, 0.3);
+}
+
+/* 수기 배지 */
+.manual-badge {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--warn);
+  background: rgba(243, 156, 18, 0.2);
+  padding: 1px 4px;
+  border-radius: 2px;
+  margin-left: 2px;
+}
+
+/* 인라인 편집 인풋 */
+.cell-edit-input {
+  width: 80px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-family: var(--mono);
+  border: 2px solid var(--iafc-blue);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--txt1);
+  outline: none;
+  text-align: center;
+}
+
+.cell-edit-input:focus {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* 수기 수정 이력 섹션 */
+.edit-history-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px solid var(--warn);
+}
+
+.edit-history-section .section-title {
+  color: var(--warn);
+}
+
+.edit-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--txt3);
+  margin-left: 8px;
+}
+
+/* 수정 이력 테이블 */
+.edit-history-table .cell-original {
+  color: var(--txt3);
+  text-decoration: line-through;
+}
+
+.edit-history-table .cell-edited-value {
+  color: var(--warn);
+  font-weight: 600;
+}
+
+.edit-history-table .cell-reason {
+  font-size: 11px;
+  color: var(--txt2);
+  max-width: 200px;
+}
+
+/* 모달 스타일 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  min-width: 400px;
+  max-width: 500px;
+  animation: modalSlideIn 0.2s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--txt1);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--txt3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.modal-close:hover {
+  background: var(--surface2);
+  color: var(--txt1);
+}
+
+.modal-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.modal-body {
+  padding: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+  border-radius: 0 0 var(--r) var(--r);
+}
+
+/* 변경 내용 요약 */
+.edit-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  background: var(--surface2);
+  border-radius: var(--r);
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+.summary-label {
+  color: var(--txt2);
+}
+
+.summary-field {
+  font-weight: 600;
+  color: var(--txt1);
+}
+
+.summary-arrow {
+  color: var(--txt3);
+}
+
+.summary-original {
+  color: var(--txt3);
+  text-decoration: line-through;
+}
+
+.summary-to {
+  color: var(--txt2);
+}
+
+.summary-new {
+  font-weight: 600;
+  color: var(--warn);
+  background: rgba(243, 156, 18, 0.15);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.summary-suffix {
+  color: var(--txt2);
+}
+
+/* 사유 선택 프리셋 */
+.reason-presets {
+  margin-bottom: 16px;
+}
+
+.reason-presets label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--txt2);
+  margin-bottom: 8px;
+}
+
+.preset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preset-btn {
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface2);
+  color: var(--txt1);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-btn:hover {
+  background: var(--border);
+  border-color: var(--txt3);
+}
+
+.preset-btn.active {
+  background: var(--iafc-blue);
+  border-color: var(--iafc-blue);
+  color: #fff;
+}
+
+/* 사유 직접 입력 */
+.custom-reason {
+  margin-top: 12px;
+}
+
+.custom-reason label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--txt2);
+  margin-bottom: 6px;
+}
+
+.custom-reason-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--txt1);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.custom-reason-input:focus {
+  border-color: var(--iafc-blue);
+}
+
+.custom-reason-input::placeholder {
+  color: var(--txt3);
+}
+
+/* 확인 완료 상태 */
+.btn-confirm:disabled {
+  background: var(--ok);
+  cursor: default;
+  opacity: 0.8;
+}
+
+/* 다크 모드 지원 */
+body.dark .modal-content {
+  background: var(--surface);
+}
+
+body.dark .modal-footer {
+  background: var(--surface3);
+}
+
+/* 인쇄 스타일 - 수기 수정 이력 포함 */
+@media print {
+  .edit-guide {
+    display: none;
+  }
+
+  .cell-edited {
+    background: #fffde7 !important;
+    border: 1px solid #f39c12 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .manual-badge {
+    background: #fff3cd !important;
+    color: #856404 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .edit-history-section {
+    page-break-inside: avoid;
+  }
+
+  .modal-overlay {
+    display: none;
+  }
+}
+
 /* 반응형은 데스크톱 전용이므로 생략 */
