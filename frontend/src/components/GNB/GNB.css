@@ -186,6 +186,7 @@
 /* 구역 선택 드롭다운 */
 #zone-selector-wrap {
   position: relative;
+  z-index: 1001;
 }
 
 #zone-selector {
@@ -244,11 +245,11 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.06);
   min-width: 300px;
-  z-index: 1000; /* 페이지 헤더(#hdr z-index: 800)보다 높게 설정 */
+  z-index: 9999; /* 모든 요소 위에 표시 */
   display: none;
-  overflow: hidden;
+  overflow: visible;
   animation: dropIn 0.15s ease;
 }
 
@@ -287,6 +288,7 @@
   transition: 0.15s;
   font-size: 12px;
   color: var(--txt1);
+  background: var(--surface);
 }
 
 .zone-dd-item:hover {
