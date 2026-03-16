@@ -1,0 +1,572 @@
+/* CCTV Grid Component Styles */
+/* Based on index_original.html Lines 107-146 */
+
+/* CSS Variables */
+:root {
+  /* 메인 강조색 - 파스텔 오렌지 */
+  --iafc-green: #FFB088;
+  --iafc-green-lt: rgba(255, 176, 136, 0.15);
+  --iafc-green-md: rgba(255, 176, 136, 0.40);
+  --iafc-blue: #5785C5;
+  --iafc-blue-lt: rgba(87, 133, 197, 0.12);
+
+  /* Status colors */
+  --ok: #059669;
+  --ok-lt: rgba(5, 150, 105, 0.12);
+  --warn: #D97706;
+  --warn-lt: rgba(217, 119, 6, 0.12);
+  --danger: #DC2626;
+  --danger-lt: rgba(220, 38, 38, 0.12);
+
+  /* Surface colors */
+  --surface: #FFFFFF;
+  --surface2: #F7F9FB;
+  --surface3: #EEF1F5;
+  --border: #E5E7EB;
+  --txt1: #1F2937;
+  --txt2: #6B7280;
+  --txt3: #9CA3AF;
+  --r: 10px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Noto Sans KR', sans-serif;
+}
+
+/* Dark mode support */
+.dark {
+  --surface: #1F2937;
+  --surface2: #1C2333;
+  --surface3: #243040;
+  --border: #374151;
+  --txt1: #F9FAFB;
+  --txt2: #9CA3AF;
+  --txt3: #6B7280;
+}
+
+/* ========== Card Header ========== */
+.card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.card-hd h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--txt1);
+}
+
+.card-hd .sub {
+  font-size: 10px;
+  color: var(--txt3);
+  margin-left: -4px;
+}
+
+.card-hd .ml {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Connection status pill */
+.cctv-tag-pill {
+  background: var(--iafc-green-lt);
+  color: var(--iafc-green);
+  border: 1px solid var(--iafc-green-md);
+  padding: 2px 9px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--mono);
+}
+
+/* View toggle (Diagram/Real) */
+.cctv-view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.cvt-lbl {
+  font-size: 10px;
+  color: var(--txt3);
+  transition: 0.2s;
+}
+
+.cvt-lbl.on {
+  color: var(--iafc-green);
+  font-weight: 600;
+}
+
+/* Toggle switch */
+.view-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  display: inline-block;
+}
+
+.view-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.view-track {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.view-track::before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.view-switch input:checked + .view-track {
+  background-color: var(--iafc-green);
+  border-color: var(--iafc-green);
+}
+
+.view-switch input:checked + .view-track::before {
+  transform: translateX(16px);
+}
+
+/* ========== Tabs ========== */
+.ctabs {
+  display: flex;
+  gap: 0;
+  padding: 8px 15px 0;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+
+.ctab {
+  padding: 5px 12px;
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--txt3);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: 0.15s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: var(--sans);
+}
+
+.ctab.active {
+  color: var(--iafc-green);
+  border-bottom-color: var(--iafc-green);
+  font-weight: 700;
+}
+
+.ctab:hover {
+  color: var(--txt1);
+}
+
+/* ========== CCTV Grid ========== */
+.cctv-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 12px 15px;
+}
+
+/* ========== Individual Camera Card ========== */
+.cam {
+  aspect-ratio: 16/10;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  transition: 0.2s;
+}
+
+.cam:hover {
+  border-color: var(--iafc-green);
+  box-shadow: 0 0 0 2px var(--iafc-green-lt);
+}
+
+.cam.alert-cam {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px var(--danger-lt);
+}
+
+/* Camera inner container */
+.cam-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background gradients for different camera types */
+.cam-bg1 {
+  background: linear-gradient(160deg, #1c2635 0%, #243040 60%, #1a2530 100%);
+}
+
+.cam-bg2 {
+  background: linear-gradient(160deg, #1a2d1e 0%, #1e3222 50%, #182618 100%);
+}
+
+.cam-bg3 {
+  background: linear-gradient(160deg, #2a1a1a 0%, #301f1f 50%, #251515 100%);
+}
+
+/* SVG diagram container */
+.cam-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+}
+
+.cam-svg-diagram {
+  display: block;
+}
+
+.cam-svg-real {
+  /* React 조건부 렌더링 사용하므로 display: none 불필요 */
+  display: block;
+}
+
+/* Show real image when diagram mode is off */
+.show-real .cam-svg-diagram {
+  display: none;
+}
+
+.show-real .cam-svg-real {
+  display: block;
+}
+
+/* Scan line animation */
+.cam-scan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  z-index: 2;
+  background: linear-gradient(90deg, transparent, rgba(0, 170, 181, 0.55), transparent);
+  animation: scan 2.8s linear infinite;
+}
+
+.cam.alert-cam .cam-scan {
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.6), transparent);
+}
+
+@keyframes scan {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+/* Grid overlay */
+.cam-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 14px 14px;
+  pointer-events: none;
+}
+
+/* Camera overlay (bottom info bar) */
+.cam-ov {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  padding: 14px 6px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cam-id {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+}
+
+.cam-loc {
+  font-size: 8.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* LIVE badge */
+.cam-live {
+  font-size: 8px;
+  font-weight: 700;
+  font-family: var(--mono);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.cam-live.ok {
+  background: var(--ok);
+  color: white;
+}
+
+.cam-live.al {
+  background: var(--danger);
+  color: white;
+  animation: pulse 0.9s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* AI status badge */
+.cam-ai {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 10;
+  font-size: 8px;
+  font-weight: 700;
+  font-family: var(--mono);
+  padding: 1.5px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.cam-ai[data-status="n"],
+.cam-ai.n {
+  background: rgba(0, 170, 181, 0.82);
+  color: white;
+}
+
+.cam-ai[data-status="d"],
+.cam-ai.d {
+  background: rgba(220, 38, 38, 0.88);
+  color: white;
+}
+
+/* Camera type badge */
+.cam-type {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 10;
+  font-size: 8px;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.48);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 1.5px 5px;
+  border-radius: 3px;
+  font-family: var(--mono);
+}
+
+/* Value display */
+.cam-val {
+  position: absolute;
+  bottom: 22px;
+  right: 5px;
+  z-index: 10;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.6);
+  color: #67E8F9;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.cam-val.rv,
+.cam-val.warn {
+  color: #FCA5A5;
+}
+
+.cam-val.warning {
+  color: var(--warn);
+}
+
+/* AI bounding box (for alerts) */
+.aib {
+  position: absolute;
+  border: 1.5px solid rgba(220, 38, 38, 0.85);
+  border-radius: 3px;
+  animation: ablink 1.4s infinite;
+}
+
+.aib.ok {
+  border-color: rgba(16, 185, 129, 0.85);
+}
+
+@keyframes ablink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Real image styles */
+.real-cam-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.real-cam-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.82) contrast(1.08) saturate(0.9);
+}
+
+/* Fade in animation */
+@keyframes camFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cam {
+  animation: camFadeIn 0.3s ease-out;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1440px) {
+  .cctv-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cctv-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cctv-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ctabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .cctv-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== ROI 오버레이 (관심영역) ========== */
+.cam-roi {
+  position: absolute;
+  border: 2px solid var(--iafc-green);
+  background: rgba(0, 170, 181, 0.15);
+  pointer-events: none;
+  z-index: 5;
+  animation: roiPulse 2s ease-in-out infinite;
+}
+
+@keyframes roiPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 170, 181, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba(0, 170, 181, 0.6);
+  }
+}
+
+.cam-roi-label {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: var(--iafc-green);
+  color: white;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 알람 상태 카메라의 ROI */
+.alert-cam .cam-roi {
+  border-color: var(--danger);
+  background: rgba(220, 38, 38, 0.2);
+  animation: roiAlertPulse 1s ease-in-out infinite;
+}
+
+@keyframes roiAlertPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 12px 3px rgba(220, 38, 38, 0.8);
+  }
+}
+
+.alert-cam .cam-roi-label {
+  background: var(--danger);
+}

@@ -1,0 +1,348 @@
+/* GaugePage (p3) - 계측기 감시 */
+
+.gauge-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Card 기본 스타일 */
+.gauge-page .card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.gauge-page .card-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.gauge-page .card-hd h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.gauge-page .card-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--iafc-green);
+}
+
+.gauge-page .card-bd {
+  padding: 14px;
+}
+
+.gauge-page .card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gauge-page .card-select {
+  padding: 4px 8px;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--txt1);
+  cursor: pointer;
+}
+
+/* 마지막 업데이트 */
+.last-update {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--txt3);
+}
+
+.last-update svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 버튼 스타일 */
+.gauge-page .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.gauge-page .btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.gauge-page .btn-sm {
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.gauge-page .btn-sm svg {
+  width: 12px;
+  height: 12px;
+}
+
+.gauge-page .btn-secondary {
+  background: var(--surface3);
+  color: var(--txt1);
+  border: 1px solid var(--border);
+}
+
+.gauge-page .btn-secondary:hover {
+  background: var(--border);
+}
+
+/* 게이지 그리드 */
+.gauge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1200px) {
+  .gauge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .gauge-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 게이지 카드 */
+.gauge-card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.gauge-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.gauge-card.gauge-normal {
+  border-left: 4px solid var(--ok);
+}
+
+.gauge-card.gauge-warning {
+  border-left: 4px solid var(--warn);
+  background: var(--warn-lt);
+}
+
+.gauge-card.gauge-danger {
+  border-left: 4px solid var(--danger);
+  background: var(--danger-lt);
+}
+
+/* 게이지 헤더 */
+.gauge-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.gauge-id {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--txt3);
+  background: var(--surface3);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.gauge-trend {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-trend svg {
+  width: 14px;
+  height: 14px;
+}
+
+.trend-up {
+  color: var(--danger);
+}
+
+.trend-down {
+  color: var(--ok);
+}
+
+.trend-stable {
+  color: var(--txt3);
+}
+
+/* 게이지 시각화 */
+.gauge-visual {
+  width: 100%;
+  max-width: 200px;
+  margin: 8px 0;
+}
+
+.gauge-meter {
+  width: 100%;
+  height: auto;
+}
+
+/* 게이지 값 */
+.gauge-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.gauge-number {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--txt1);
+  line-height: 1;
+}
+
+.gauge-unit {
+  font-size: 14px;
+  color: var(--txt3);
+}
+
+/* 게이지 이름 */
+.gauge-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt1);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* 범위 바 */
+.gauge-range {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--txt3);
+  font-family: var(--mono);
+  margin-bottom: 8px;
+}
+
+.gauge-range-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.gauge-range-fill {
+  height: 100%;
+  background: var(--iafc-green);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.gauge-warning .gauge-range-fill {
+  background: var(--warn);
+}
+
+.gauge-danger .gauge-range-fill {
+  background: var(--danger);
+}
+
+/* 임계값 표시 */
+.gauge-limits {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.limit-label {
+  font-size: 9px;
+  color: var(--txt3);
+  text-align: center;
+}
+
+/* 차트 플레이스홀더 */
+.chart-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  background: var(--surface2);
+  border: 2px dashed var(--border);
+  border-radius: var(--r);
+  color: var(--txt3);
+}
+
+.chart-placeholder-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.chart-placeholder-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-placeholder p {
+  font-size: 13px;
+  margin: 0 0 4px 0;
+}
+
+.chart-placeholder-hint {
+  font-size: 11px;
+  color: var(--iafc-green);
+  font-weight: 500;
+}
+
+/* 다크 모드 */
+body.dark .gauge-card {
+  background: var(--surface);
+}
+
+body.dark .gauge-card.gauge-warning {
+  background: var(--warn-lt);
+}
+
+body.dark .gauge-card.gauge-danger {
+  background: var(--danger-lt);
+}

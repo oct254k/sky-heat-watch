@@ -1,0 +1,106 @@
+/* ValveCard.css - 밸브 상태 카드 스타일 */
+
+/* 밸브 그리드 레이아웃 */
+.valve-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 12px 15px;
+}
+
+/* 밸브 카드 컨테이너 */
+.vc {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* 부분개방 상태 카드 */
+.vc.partial {
+  border-color: var(--warn);
+  background: var(--warn-lt);
+}
+
+/* 밸브 카드 헤더 */
+.vc-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 밸브 이름 */
+.vc-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 상태 배지 */
+.vc-status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* 정상 상태 */
+.vc-status.ok {
+  background: var(--ok-lt);
+  color: var(--ok);
+}
+
+/* 경고 상태 */
+.vc-status.warn {
+  background: var(--warn-lt);
+  color: var(--warn);
+}
+
+/* 밸브 카드 바디 */
+.vc-bd {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 다이얼 게이지 영역 */
+.vc-dial {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 8px;
+}
+
+/* 개방 각도 텍스트 */
+.vc-angle {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--txt1);
+}
+
+/* 카메라 연결 정보 */
+.vc-cam {
+  font-size: 11px;
+  color: var(--txt3);
+  margin-top: 4px;
+}
+
+/* 반응형: 태블릿 */
+@media (max-width: 1024px) {
+  .valve-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 반응형: 모바일 */
+@media (max-width: 640px) {
+  .valve-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vc-bd {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,750 @@
+/* AdminSettingsPanel Styles */
+
+.admin-panel {
+  background: var(--surface);
+  border: 2px solid var(--iafc-blue);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 20px;
+  overflow: hidden;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, var(--iafc-blue), #4A75B5);
+  color: white;
+}
+
+.admin-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-panel-title svg {
+  width: 20px;
+  height: 20px;
+}
+
+.admin-panel-title h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.admin-mode-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-header-actions .btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.admin-header-actions .btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.admin-header-actions .btn-primary {
+  background: var(--ok);
+  border-color: var(--ok);
+}
+
+.admin-header-actions .btn-primary:hover {
+  background: #229a70;
+}
+
+.btn-sm {
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
+.btn-sm svg {
+  width: 12px;
+  height: 12px;
+}
+
+.admin-panel-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.15s;
+}
+
+.admin-panel-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.admin-panel-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 탭 네비게이션 */
+.admin-tabs {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--txt2);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+  border-bottom: 2px solid transparent;
+  font-family: var(--sans);
+}
+
+.admin-tab:hover {
+  background: var(--surface3);
+  color: var(--txt1);
+}
+
+.admin-tab.active {
+  color: var(--iafc-blue);
+  border-bottom-color: var(--iafc-blue);
+  background: var(--surface);
+}
+
+.admin-tab svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* 컨텐츠 영역 */
+.admin-content {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 400px;
+}
+
+/* 사이드바 */
+.admin-sidebar {
+  background: var(--surface2);
+  border-right: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.admin-sidebar h4 {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--txt3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 12px 8px;
+  margin: 0;
+}
+
+.camera-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.camera-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.camera-item:hover {
+  background: var(--surface3);
+}
+
+.camera-item.active {
+  background: var(--iafc-blue-lt);
+  border-left: 3px solid var(--iafc-blue);
+}
+
+.camera-item-icon {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.camera-item-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--txt2);
+}
+
+.has-image-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  border: 2px solid var(--surface2);
+}
+
+.camera-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.camera-item-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--txt1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.camera-item-building {
+  font-size: 10px;
+  color: var(--txt3);
+}
+
+.roi-count {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--iafc-green-lt);
+  color: var(--iafc-green);
+}
+
+/* 메인 설정 영역 */
+.admin-main {
+  padding: 16px;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.settings-header h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--txt1);
+  margin: 0;
+}
+
+.equipment-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--iafc-yellow-lt);
+  color: var(--iafc-yellow);
+}
+
+/* 이미지 업로드 영역 */
+.image-upload-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  outline: none;
+}
+
+.image-upload-area:focus .image-preview {
+  border-color: var(--iafc-blue);
+  box-shadow: 0 0 0 3px rgba(87, 133, 197, 0.15);
+}
+
+.image-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  overflow: hidden;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.no-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+  color: var(--txt3);
+  pointer-events: none;
+}
+
+.no-image svg {
+  width: 48px;
+  height: 48px;
+  opacity: 0.5;
+}
+
+.no-image span {
+  font-size: 12px;
+}
+
+/* ROI 박스 */
+.roi-box {
+  position: absolute;
+  border: 2px solid var(--iafc-green);
+  background: rgba(0, 170, 181, 0.1);
+  pointer-events: none;
+}
+
+.roi-box.drawing {
+  border-style: dashed;
+  background: rgba(0, 170, 181, 0.2);
+}
+
+.roi-label {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--iafc-green);
+  color: white;
+  white-space: nowrap;
+}
+
+/* 이미지 액션 버튼 */
+.image-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+  font-family: var(--sans);
+}
+
+.btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-primary {
+  background: var(--iafc-blue);
+  border-color: var(--iafc-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #4A75B5;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--txt1);
+}
+
+.btn-secondary:hover {
+  background: var(--surface2);
+  border-color: var(--iafc-blue);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  background: var(--danger-lt);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.btn-danger:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-active {
+  background: var(--iafc-green);
+  border-color: var(--iafc-green);
+  color: white;
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ROI 설정 */
+.roi-settings,
+.threshold-settings {
+  min-height: 300px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  gap: 8px;
+  color: var(--txt3);
+  text-align: center;
+}
+
+.empty-state svg {
+  width: 48px;
+  height: 48px;
+  opacity: 0.5;
+}
+
+.empty-state span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.empty-state p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.roi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.roi-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.roi-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.roi-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.roi-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--txt1);
+}
+
+.roi-coords {
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--txt3);
+}
+
+/* 임계값 설정 */
+.threshold-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.threshold-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.threshold-item label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--txt2);
+}
+
+.threshold-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.threshold-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--mono);
+  color: var(--txt1);
+  background: var(--surface);
+}
+
+.threshold-input input:focus {
+  outline: none;
+  border-color: var(--iafc-blue);
+  box-shadow: 0 0 0 3px rgba(87, 133, 197, 0.15);
+}
+
+.threshold-input span {
+  font-size: 12px;
+  color: var(--txt3);
+  min-width: 36px;
+}
+
+.threshold-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Base64 모달 */
+.base64-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.base64-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg, 0 25px 50px -12px rgba(0, 0, 0, 0.25));
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.base64-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.base64-modal-header h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--txt1);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: var(--surface2);
+  color: var(--txt2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.15s;
+}
+
+.modal-close:hover {
+  background: var(--surface3);
+  color: var(--txt1);
+}
+
+.modal-close svg {
+  width: 14px;
+  height: 14px;
+}
+
+.base64-modal-body {
+  margin-bottom: 16px;
+}
+
+.base64-hint {
+  font-size: 12px;
+  color: var(--txt3);
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+.base64-hint code {
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  background: var(--surface2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--iafc-blue);
+}
+
+.base64-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.base64-textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  color: var(--txt1);
+  font-size: 11px;
+  font-family: var(--mono, monospace);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.base64-textarea:focus {
+  outline: none;
+  border-color: var(--iafc-blue);
+  box-shadow: 0 0 0 3px rgba(87, 133, 197, 0.15);
+}
+
+.base64-textarea::placeholder {
+  color: var(--txt3);
+}
+
+.base64-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .admin-content {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .camera-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 12px 12px;
+  }
+
+  .threshold-list {
+    grid-template-columns: 1fr;
+  }
+
+  .base64-modal {
+    width: 95%;
+    padding: 16px;
+  }
+}

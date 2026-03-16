@@ -1,0 +1,369 @@
+/* OverviewPage (p7) - 구축 개요 */
+
+.overview-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Card 기본 스타일 */
+.overview-page .card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.overview-page .card-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.overview-page .card-hd h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.overview-page .card-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--iafc-blue);
+}
+
+.overview-page .card-bd {
+  padding: 14px;
+}
+
+.overview-page .card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 버튼 스타일 */
+.overview-page .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.overview-page .btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.overview-page .btn-sm {
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.overview-page .btn-sm svg {
+  width: 12px;
+  height: 12px;
+}
+
+.overview-page .btn-secondary {
+  background: var(--surface3);
+  color: var(--txt1);
+  border: 1px solid var(--border);
+}
+
+.overview-page .btn-secondary:hover {
+  background: var(--border);
+}
+
+/* 프로젝트 카드 */
+.project-card {
+  background: linear-gradient(135deg, var(--iafc-blue) 0%, var(--iafc-green) 100%);
+  border: none;
+  padding: 24px;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.project-logo svg {
+  width: 56px;
+  height: 56px;
+}
+
+.project-logo svg rect {
+  fill: rgba(255, 255, 255, 0.2);
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px 0;
+}
+
+.project-meta {
+  display: flex;
+  gap: 16px;
+}
+
+.project-version,
+.project-date {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.project-version {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.project-details {
+  display: flex;
+  gap: 32px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.detail-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* 배관망 지도 */
+.pipeline-map {
+  background: var(--surface2);
+  border-radius: var(--r);
+  padding: 16px;
+  overflow: hidden;
+}
+
+.pipeline-svg {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+}
+
+.zone-label rect {
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.zone-label:hover rect {
+  filter: brightness(1.1);
+}
+
+.valve {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.valve:hover {
+  transform: scale(1.2);
+}
+
+/* Overview Grid */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 시스템 구성 요소 목록 */
+.component-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.component-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: var(--surface2);
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.component-item:hover {
+  background: var(--surface3);
+}
+
+.component-status {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ok-lt);
+  border-radius: 50%;
+  color: var(--ok);
+  flex-shrink: 0;
+}
+
+.component-status svg {
+  width: 14px;
+  height: 14px;
+}
+
+.component-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.component-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt1);
+}
+
+.component-desc {
+  font-size: 11px;
+  color: var(--txt3);
+}
+
+/* 모니터링 구역 목록 */
+.zone-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .zone-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.zone-item {
+  padding: 14px;
+  background: var(--surface2);
+  border-radius: 8px;
+  border-left: 4px solid var(--ok);
+  transition: background 0.15s ease;
+}
+
+.zone-item:hover {
+  background: var(--surface3);
+}
+
+.zone-item.zone-warning {
+  border-left-color: var(--warn);
+  background: var(--warn-lt);
+}
+
+.zone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.zone-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--txt1);
+}
+
+.zone-status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.zone-status.status-normal {
+  background: var(--ok);
+  color: #fff;
+}
+
+.zone-status.status-warning {
+  background: var(--warn);
+  color: #fff;
+}
+
+.zone-desc {
+  font-size: 11px;
+  color: var(--txt3);
+  margin: 0 0 10px 0;
+}
+
+.zone-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.zone-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--txt2);
+}
+
+.zone-stats svg {
+  width: 12px;
+  height: 12px;
+  color: var(--iafc-green);
+}
+
+/* 다크 모드 */
+body.dark .project-card {
+  background: linear-gradient(135deg, var(--iafc-blue) 0%, var(--iafc-green) 100%);
+}
+
+body.dark .component-item:hover,
+body.dark .zone-item:hover {
+  background: var(--surface3);
+}
+
+body.dark .zone-item.zone-warning {
+  background: var(--warn-lt);
+}
+
+body.dark .pipeline-map {
+  background: var(--surface3);
+}

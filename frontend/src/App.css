@@ -1,0 +1,176 @@
+/* SKY 모니터링 시스템 App Styles */
+
+/* Header Styles */
+#hdr {
+  height: 44px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.hdr-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--txt1);
+  margin: 0;
+}
+
+.hdr-sub {
+  font-size: 11px;
+  color: var(--txt3);
+  margin-left: 6px;
+}
+
+.hdr-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hdr-time {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--txt2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.hdr-live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ok);
+}
+
+.hdr-live::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* Card Styles */
+.card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-hd {
+  padding: 11px 15px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-hd h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-hd .sub {
+  font-size: 11px;
+  color: var(--txt3);
+}
+
+.card-hd .ml {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-bd {
+  padding: 14px 15px;
+}
+
+/* Utility Classes */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.ml-auto { margin-left: auto; }
+.mr-2 { margin-right: 8px; }
+.mt-2 { margin-top: 8px; }
+.mb-2 { margin-bottom: 8px; }
+.p-2 { padding: 8px; }
+.p-3 { padding: 12px; }
+.p-4 { padding: 16px; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.text-sm { font-size: 12px; }
+.text-xs { font-size: 10px; }
+.font-bold { font-weight: 700; }
+.font-mono { font-family: var(--mono); }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--txt3);
+}
+
+/* Dark mode scrollbar */
+body.dark ::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--txt3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #hdr {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .hdr-title {
+    font-size: 13px;
+  }
+
+  .hdr-sub {
+    display: none;
+  }
+
+  .hdr-time {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+}

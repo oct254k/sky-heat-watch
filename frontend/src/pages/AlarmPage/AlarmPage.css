@@ -1,0 +1,386 @@
+/* AlarmPage (p4) - 알람/이벤트 관리 */
+
+.alarm-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 알람 통계 카드 */
+.alarm-stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.stat-power .stat-icon {
+  background: var(--iafc-green-lt);
+  color: var(--iafc-green);
+}
+
+@media (max-width: 1024px) {
+  .alarm-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .alarm-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.stat-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.stat-total .stat-icon {
+  background: var(--iafc-blue-lt);
+  color: var(--iafc-blue);
+}
+
+.stat-active .stat-icon {
+  background: var(--danger-lt);
+  color: var(--danger);
+}
+
+.stat-danger .stat-icon {
+  background: var(--danger-lt);
+  color: var(--danger);
+}
+
+.stat-warning .stat-icon {
+  background: var(--warn-lt);
+  color: var(--warn);
+}
+
+.stat-resolved .stat-icon {
+  background: var(--ok-lt);
+  color: var(--ok);
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--txt1);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--txt3);
+}
+
+/* Card 기본 스타일 */
+.alarm-page .card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.alarm-page .card-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.alarm-page .card-hd h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.alarm-page .card-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--warn);
+}
+
+.alarm-page .card-bd {
+  padding: 14px;
+}
+
+.alarm-page .card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.alarm-page .card-select,
+.alarm-page .card-input {
+  padding: 4px 8px;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--txt1);
+  cursor: pointer;
+}
+
+/* 버튼 스타일 */
+.alarm-page .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.alarm-page .btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.alarm-page .btn-sm {
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.alarm-page .btn-sm svg {
+  width: 12px;
+  height: 12px;
+}
+
+.alarm-page .btn-icon {
+  padding: 6px;
+}
+
+.alarm-page .btn-secondary {
+  background: var(--surface3);
+  color: var(--txt1);
+  border: 1px solid var(--border);
+}
+
+.alarm-page .btn-secondary:hover {
+  background: var(--border);
+}
+
+.alarm-page .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 테이블 스타일 */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.alarm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.alarm-table th,
+.alarm-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.alarm-table th {
+  font-weight: 600;
+  color: var(--txt2);
+  background: var(--surface2);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.alarm-table tbody tr:hover {
+  background: var(--surface2);
+}
+
+.alarm-table tbody tr.row-active {
+  background: var(--danger-lt);
+}
+
+.cell-mono {
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.cell-time {
+  color: var(--txt3);
+}
+
+.cell-title {
+  font-weight: 500;
+  color: var(--txt1);
+}
+
+.cell-value {
+  font-weight: 600;
+}
+
+/* 심각도 뱃지 */
+.severity-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.severity-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.severity-warning {
+  background: var(--warn);
+  color: #fff;
+}
+
+.severity-info {
+  background: var(--info);
+  color: #fff;
+}
+
+/* 상태 뱃지 */
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.status-active {
+  background: var(--danger-lt);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.status-acknowledged {
+  background: var(--warn-lt);
+  color: var(--warn);
+  border: 1px solid var(--warn);
+}
+
+.status-resolved {
+  background: var(--ok-lt);
+  color: var(--ok);
+  border: 1px solid var(--ok);
+}
+
+/* 액션 버튼 */
+.action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-action {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-action svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-acknowledge {
+  background: var(--ok-lt);
+  color: var(--ok);
+}
+
+.btn-acknowledge:hover {
+  background: var(--ok);
+  color: #fff;
+}
+
+.btn-detail {
+  background: var(--surface3);
+  color: var(--txt2);
+}
+
+.btn-detail:hover {
+  background: var(--iafc-blue);
+  color: #fff;
+}
+
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.pagination-info {
+  font-size: 12px;
+  color: var(--txt3);
+  padding: 0 12px;
+}
+
+/* 다크 모드 */
+body.dark .alarm-page .card-hd h3 {
+  color: var(--txt1);
+}
+
+body.dark .alarm-table th {
+  background: var(--surface3);
+}
+
+body.dark .alarm-table tbody tr:hover {
+  background: var(--surface3);
+}
+
+body.dark .alarm-table tbody tr.row-active {
+  background: var(--danger-lt);
+}

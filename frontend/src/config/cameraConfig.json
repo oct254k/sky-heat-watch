@@ -1,0 +1,122 @@
+{
+  "cameras": [
+    {
+      "id": "CAM-01",
+      "name": "AICC 냉동기#1",
+      "building": "AICC",
+      "equipment": "스크류냉동기",
+      "customImage": null,
+      "rois": [],
+      "thresholds": {
+        "tempWarning": 35,
+        "tempDanger": 45,
+        "vibrationWarning": 5,
+        "vibrationDanger": 10
+      }
+    },
+    {
+      "id": "CAM-02",
+      "name": "AICC 냉동기#2",
+      "building": "AICC",
+      "equipment": "스크류냉동기",
+      "customImage": null,
+      "rois": [],
+      "thresholds": {
+        "tempWarning": 35,
+        "tempDanger": 45,
+        "vibrationWarning": 5,
+        "vibrationDanger": 10
+      }
+    },
+    {
+      "id": "CAM-03",
+      "name": "AICC 냉각탑",
+      "building": "AICC",
+      "equipment": "냉각탑",
+      "customImage": null,
+      "rois": [],
+      "thresholds": {
+        "tempWarning": 38,
+        "tempDanger": 48,
+        "vibrationWarning": 3,
+        "vibrationDanger": 7
+      }
+    },
+    {
+      "id": "CAM-04",
+      "name": "관제탑 냉동기#1",
+      "building": "관제탑",
+      "equipment": "스크류냉동기",
+      "customImage": null,
+      "rois": [],
+      "thresholds": {
+        "tempWarning": 35,
+        "tempDanger": 45,
+        "vibrationWarning": 5,
+        "vibrationDanger": 10
+      }
+    },
+    {
+      "id": "CAM-05",
+      "name": "관제탑 냉동기#2",
+      "building": "관제탑",
+      "equipment": "스크류냉동기",
+      "customImage": null,
+      "rois": [],
+      "thresholds": {
+        "tempWarning": 35,
+        "tempDanger": 45,
+        "vibrationWarning": 5,
+        "vibrationDanger": 10
+      }
+    },
+    {
+      "id": "CAM-06",
+      "name": "관제탑 팬류",
+      "building": "관제탑",
+      "equipment": "팬류/공조기",
+      "customImage": null,
+      "rois": [],
+      "thresholds": {
+        "tempWarning": 40,
+        "tempDanger": 50,
+        "vibrationWarning": 4,
+        "vibrationDanger": 8
+      }
+    },
+    {
+      "id": "CAM-07",
+      "name": "공항청사 냉동기#1",
+      "building": "공항청사",
+      "equipment": "스크류냉동기",
+      "customImage": null,
+      "rois": [],
+      "thresholds": {
+        "tempWarning": 35,
+        "tempDanger": 45,
+        "vibrationWarning": 5,
+        "vibrationDanger": 10
+      }
+    },
+    {
+      "id": "CAM-08",
+      "name": "공항청사 냉동기#2",
+      "building": "공항청사",
+      "equipment": "스크류냉동기",
+      "customImage": null,
+      "rois": [],
+      "thresholds": {
+        "tempWarning": 35,
+        "tempDanger": 45,
+        "vibrationWarning": 5,
+        "vibrationDanger": 10
+      }
+    }
+  ],
+  "globalSettings": {
+    "aiDetectionEnabled": true,
+    "alertSoundEnabled": true,
+    "autoSaveInterval": 30
+  },
+  "lastUpdated": null
+}

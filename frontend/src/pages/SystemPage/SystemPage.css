@@ -1,0 +1,503 @@
+/* SystemPage (p5) - 시스템 상태 */
+
+.system-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Card 기본 스타일 */
+.system-page .card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.system-page .card-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.system-page .card-hd h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.system-page .card-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--iafc-green);
+}
+
+.system-page .card-bd {
+  padding: 14px;
+}
+
+.system-page .card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.system-page .card-select {
+  padding: 4px 8px;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--txt1);
+  cursor: pointer;
+}
+
+/* 마지막 업데이트 */
+.last-update {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--txt3);
+}
+
+.last-update svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 버튼 스타일 */
+.system-page .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.system-page .btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.system-page .btn-sm {
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.system-page .btn-sm svg {
+  width: 12px;
+  height: 12px;
+}
+
+.system-page .btn-secondary {
+  background: var(--surface3);
+  color: var(--txt1);
+  border: 1px solid var(--border);
+}
+
+.system-page .btn-secondary:hover {
+  background: var(--border);
+}
+
+/* 서버 그리드 */
+.server-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .server-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .server-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 서버 카드 */
+.server-card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.server-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.server-card.status-online {
+  border-left: 4px solid var(--ok);
+}
+
+.server-card.status-warning {
+  border-left: 4px solid var(--warn);
+  background: var(--warn-lt);
+}
+
+.server-card.status-offline {
+  border-left: 4px solid var(--danger);
+  background: var(--danger-lt);
+}
+
+/* 서버 헤더 */
+.server-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.server-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.server-status svg {
+  width: 16px;
+  height: 16px;
+}
+
+.status-text {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-text.status-online {
+  color: var(--ok);
+}
+
+.status-text.status-warning {
+  color: var(--warn);
+}
+
+.status-text.status-offline {
+  color: var(--danger);
+}
+
+.server-id {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--txt3);
+  background: var(--surface3);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 서버 이름 */
+.server-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--txt1);
+  margin: 0 0 16px 0;
+}
+
+/* 메트릭 */
+.server-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: var(--txt3);
+}
+
+.metric-value {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--mono);
+}
+
+.metric-value.usage-normal {
+  color: var(--ok);
+}
+
+.metric-value.usage-warning {
+  color: var(--warn);
+}
+
+.metric-value.usage-danger {
+  color: var(--danger);
+}
+
+.metric-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.metric-fill.usage-normal {
+  background: var(--ok);
+}
+
+.metric-fill.usage-warning {
+  background: var(--warn);
+}
+
+.metric-fill.usage-danger {
+  background: var(--danger);
+}
+
+/* 서버 푸터 */
+.server-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.server-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-label {
+  font-size: 10px;
+  color: var(--txt3);
+}
+
+.info-value {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--txt2);
+}
+
+/* 차트 플레이스홀더 */
+.chart-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: var(--surface2);
+  border: 2px dashed var(--border);
+  border-radius: var(--r);
+  color: var(--txt3);
+}
+
+.chart-placeholder-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.chart-placeholder-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-placeholder p {
+  font-size: 13px;
+  margin: 0 0 4px 0;
+}
+
+.chart-placeholder-hint {
+  font-size: 11px;
+  color: var(--iafc-green);
+  font-weight: 500;
+}
+
+/* 리소스 차트 컨테이너 */
+.resource-chart-container {
+  height: 280px;
+  position: relative;
+}
+
+/* 연결 요약 */
+.connection-summary {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+}
+
+.conn-online {
+  color: var(--ok);
+}
+
+.conn-warning {
+  color: var(--warn);
+}
+
+.conn-offline {
+  color: var(--danger);
+}
+
+/* 테이블 스타일 */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.connection-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.connection-table th,
+.connection-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.connection-table th {
+  font-weight: 600;
+  color: var(--txt2);
+  background: var(--surface2);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.connection-table tbody tr:hover {
+  background: var(--surface2);
+}
+
+.connection-table tbody tr.row-disconnected {
+  background: var(--danger-lt);
+}
+
+.connection-table tbody tr.row-warning {
+  background: var(--warn-lt);
+}
+
+.cell-mono {
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.cell-latency {
+  color: var(--ok);
+}
+
+.cell-latency.latency-high {
+  color: var(--warn);
+  font-weight: 600;
+}
+
+/* 연결 상태 아이콘 */
+.connection-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.connection-status svg {
+  width: 16px;
+  height: 16px;
+}
+
+.connection-status.status-connected {
+  color: var(--ok);
+}
+
+.connection-status.status-warning {
+  color: var(--warn);
+}
+
+.connection-status.status-disconnected {
+  color: var(--danger);
+}
+
+/* 프로토콜 뱃지 */
+.protocol-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--mono);
+  background: var(--surface3);
+  color: var(--txt2);
+  border-radius: 4px;
+}
+
+/* 액션 버튼 */
+.action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-action {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--surface3);
+  color: var(--txt2);
+}
+
+.btn-action svg {
+  width: 12px;
+  height: 12px;
+}
+
+.btn-action:hover {
+  background: var(--iafc-blue);
+  color: #fff;
+}
+
+/* 다크 모드 */
+body.dark .server-card {
+  background: var(--surface);
+}
+
+body.dark .server-card.status-warning {
+  background: var(--warn-lt);
+}
+
+body.dark .connection-table th {
+  background: var(--surface3);
+}
+
+body.dark .connection-table tbody tr:hover {
+  background: var(--surface3);
+}

@@ -1,0 +1,210 @@
+/* Sidebar Component Styles */
+/* Based on index_original.html Lines 33-56 */
+
+/* CSS Variables - 원본 시스템과 호환되는 변수 정의 */
+:root {
+  /* 브랜드 컬러 */
+  --iafc-green: #00AAB5;
+  --iafc-green-lt: rgba(0, 170, 181, 0.1);
+  --iafc-blue: #5785C5;
+  --iafc-yellow: #F99D1B;
+
+  /* 배경/표면 색상 */
+  --surface: #FFFFFF;
+  --surface2: #F7F9FB;
+  --surface3: #EEF1F5;
+  --border: #E5E7EB;
+  --border2: #D1D5DB;
+
+  /* 텍스트 색상 */
+  --txt1: #1F2937;
+  --txt2: #6B7280;
+  --txt3: #9CA3AF;
+
+  /* 상태 색상 */
+  --ok: #059669;
+  --warn: #D97706;
+  --danger: #DC2626;
+
+  /* 레이아웃 변수 */
+  --sb: 220px;
+
+  /* 폰트 */
+  --mono: 'JetBrains Mono', monospace;
+}
+
+/* 다크모드 지원 */
+.dark {
+  --surface: #161B22;
+  --surface2: #1C2333;
+  --surface3: #22262E;
+  --border: #30363D;
+  --border2: #484F58;
+  --txt1: #E6EDF3;
+  --txt2: #9BADC0;
+  --txt3: #6E7B8B;
+  --iafc-green-lt: rgba(0, 170, 181, 0.15);
+}
+
+/* Sidebar Container */
+#sb,
+.sidebar {
+  width: var(--sb);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: width 0.2s ease, opacity 0.2s ease;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Collapsed State */
+body.sb-collapsed #sb,
+.sidebar.collapsed {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  border-right: none;
+}
+
+/* Navigation Area */
+.sb-nav {
+  flex: 1;
+  padding: 8px 0;
+  overflow-y: auto;
+}
+
+.sb-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Group Label */
+.sb-group-lbl {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--txt3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px 2px;
+}
+
+/* Navigation Item */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  cursor: pointer;
+  color: var(--txt2);
+  font-size: 12px;
+  font-weight: 500;
+  border-left: 2px solid transparent;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.nav-item:hover {
+  background: var(--surface2);
+  color: var(--txt1);
+}
+
+.nav-item.active {
+  background: var(--iafc-green-lt);
+  color: var(--iafc-green);
+  border-left-color: var(--iafc-green);
+  font-weight: 700;
+}
+
+/* Navigation Item Icon */
+.nav-item svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Navigation Badge */
+.nav-badge {
+  margin-left: auto;
+  font-size: 9px;
+  font-family: var(--mono);
+  font-weight: 700;
+  background: var(--danger);
+  color: white;
+  border-radius: 8px;
+  padding: 1px 5px;
+  min-width: 16px;
+  text-align: center;
+}
+
+/* Divider */
+.sb-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+/* Footer Area - System Uptime */
+.sb-footer {
+  border-top: 1px solid var(--border);
+  padding: 10px 14px;
+  flex-shrink: 0;
+}
+
+.sb-uptime-lbl {
+  font-size: 9.5px;
+  color: var(--txt3);
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.sb-bar {
+  height: 5px;
+  background: var(--surface3);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 3px;
+}
+
+.sb-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--iafc-green), #34d399);
+  transition: width 0.3s ease;
+}
+
+.sb-val {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ok);
+}
+
+.sb-sub {
+  font-size: 9.5px;
+  color: var(--txt3);
+}
+
+/* Responsive: Tablet and below */
+@media (max-width: 1024px) {
+  #sb,
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  }
+
+  #sb.collapsed,
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+    width: var(--sb);
+    opacity: 1;
+  }
+}

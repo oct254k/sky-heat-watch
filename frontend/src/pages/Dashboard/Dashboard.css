@@ -1,0 +1,213 @@
+/**
+ * Dashboard Page Styles
+ *
+ * Layout structure:
+ * - KPI row: 5 columns
+ * - Main area: CCTV grid (fluid) + Alarm sidebar (280px fixed)
+ * - Sensor grid: 6 columns
+ * - Valve grid: 4 columns
+ *
+ * Based on index_original.html lines 1094-1852
+ */
+
+/* Main Dashboard Container */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  min-height: 100%;
+}
+
+/* Generic Section Wrapper */
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Content Area - CCTV + Alarm Panel */
+.dashboard-main {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 14px;
+  align-items: start;
+}
+
+/* CCTV Grid Content Area */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0; /* Prevent grid blowout */
+}
+
+/* Alarm Panel Sidebar */
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 14px;
+  max-height: calc(100vh - var(--gnb) - var(--hdr) - 28px);
+}
+
+.dashboard-sidebar .alarm-panel {
+  height: 100%;
+  max-height: 600px;
+}
+
+/* Card wrapper for valve section */
+.dashboard-section .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+/* Card header styling */
+.dashboard-section .card-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dashboard-section .card-hd .card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-section .card-hd .card-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dashboard-section .card-hd h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--txt1);
+  margin: 0;
+}
+
+.dashboard-section .card-hd .sub {
+  font-size: 13px;
+  color: var(--txt3);
+  margin-left: 4px;
+}
+
+/* Valve grid inside card - add padding */
+.dashboard-section .card .valve-grid {
+  padding: 14px 18px 18px;
+}
+
+/* ========================================
+   Responsive Breakpoints
+   ======================================== */
+
+/* Tablet and below - 1280px */
+@media (max-width: 1280px) {
+  .dashboard-main {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    position: static;
+    max-height: none;
+  }
+
+  .dashboard-sidebar .alarm-panel {
+    max-height: 400px;
+  }
+}
+
+/* Small tablet - 1024px */
+@media (max-width: 1024px) {
+  .dashboard {
+    gap: 12px;
+  }
+
+  .dashboard-main {
+    gap: 12px;
+  }
+
+  .dashboard-section .card-hd {
+    padding: 12px 14px;
+  }
+
+  .dashboard-section .card .valve-grid {
+    padding: 12px 14px 14px;
+  }
+}
+
+/* Mobile landscape / small tablet - 768px */
+@media (max-width: 768px) {
+  .dashboard {
+    gap: 10px;
+  }
+
+  .dashboard-main {
+    gap: 10px;
+  }
+
+  .dashboard-section .card-hd {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+  }
+
+  .dashboard-section .card-hd h3 {
+    font-size: 14px;
+  }
+
+  .dashboard-section .card-hd .sub {
+    font-size: 12px;
+    width: 100%;
+    margin-left: 44px;
+    margin-top: 4px;
+  }
+
+  .dashboard-section .card .valve-grid {
+    padding: 10px 12px 12px;
+  }
+
+  .dashboard-sidebar .alarm-panel {
+    max-height: 350px;
+  }
+}
+
+/* Mobile portrait - 480px */
+@media (max-width: 480px) {
+  .dashboard {
+    gap: 8px;
+  }
+
+  .dashboard-section .card-hd {
+    padding: 8px 10px;
+  }
+
+  .dashboard-section .card-hd .card-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .dashboard-section .card-hd .card-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dashboard-section .card .valve-grid {
+    padding: 8px 10px 10px;
+  }
+
+  .dashboard-sidebar .alarm-panel {
+    max-height: 300px;
+  }
+}

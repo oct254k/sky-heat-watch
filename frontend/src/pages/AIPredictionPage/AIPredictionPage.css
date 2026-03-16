@@ -1,0 +1,712 @@
+/* AIPredictionPage (p9) - AI 예측 분석 */
+
+.ai-prediction-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 전력 이상 감지 섹션 (첫 줄) */
+.power-anomaly-section {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.power-anomaly-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, var(--danger-lt) 0%, var(--surface) 50%);
+  border-bottom: 1px solid var(--border);
+}
+
+.power-anomaly-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--txt1);
+}
+
+.power-anomaly-title svg {
+  width: 18px;
+  height: 18px;
+  color: var(--danger);
+}
+
+.power-count {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--danger);
+  color: #fff;
+}
+
+.power-updated {
+  font-size: 10px;
+  color: var(--txt3);
+}
+
+.power-anomaly-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+@media (max-width: 1400px) {
+  .power-anomaly-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .power-anomaly-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.power-anomaly-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--surface);
+}
+
+.power-anomaly-item.status-warning {
+  background: linear-gradient(135deg, var(--danger-lt) 0%, var(--surface) 100%);
+  border-left: 3px solid var(--danger);
+}
+
+.power-anomaly-item.status-caution {
+  background: linear-gradient(135deg, var(--warn-lt) 0%, var(--surface) 100%);
+  border-left: 3px solid var(--warn);
+}
+
+.power-type {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--txt3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.power-equipment {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--txt1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.power-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--danger);
+  font-family: var(--mono);
+}
+
+.power-anomaly-item.status-caution .power-value {
+  color: var(--warn);
+}
+
+.power-threshold {
+  font-size: 10px;
+  color: var(--txt3);
+}
+
+.power-change {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.power-change.warning {
+  background: var(--danger);
+  color: #fff;
+}
+
+.power-change.caution {
+  background: var(--warn);
+  color: #fff;
+}
+
+/* AI 요약 카드 */
+.ai-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .ai-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ai-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ai-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.ai-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ai-brain .ai-icon {
+  background: linear-gradient(135deg, var(--iafc-blue-lt), var(--iafc-green-lt));
+  color: var(--iafc-blue);
+}
+
+.ai-brain {
+  border-left: 3px solid var(--iafc-blue);
+}
+
+.ai-warning .ai-icon {
+  background: var(--danger-lt);
+  color: var(--danger);
+}
+
+.ai-warning {
+  border-left: 3px solid var(--danger);
+}
+
+.ai-caution .ai-icon {
+  background: var(--warn-lt);
+  color: var(--warn);
+}
+
+.ai-caution {
+  border-left: 3px solid var(--warn);
+}
+
+.ai-confidence .ai-icon {
+  background: var(--ok-lt);
+  color: var(--ok);
+}
+
+.ai-confidence {
+  border-left: 3px solid var(--ok);
+}
+
+.ai-summary-content {
+  flex: 1;
+}
+
+.ai-summary-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--txt1);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.ai-summary-label {
+  font-size: 12px;
+  color: var(--txt3);
+  font-weight: 500;
+}
+
+/* AI 펄스 애니메이션 */
+.ai-pulse {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--iafc-green);
+  animation: ai-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ai-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 170, 181, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 170, 181, 0);
+  }
+}
+
+/* 메인 그리드 */
+.ai-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 1200px) {
+  .ai-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card 기본 스타일 */
+.ai-prediction-page .card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.ai-prediction-page .card-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ai-prediction-page .card-hd h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--txt1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.ai-prediction-page .card-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--iafc-blue);
+}
+
+.ai-prediction-page .card-bd {
+  padding: 14px;
+}
+
+.ai-prediction-page .card-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: var(--iafc-green);
+  color: #fff;
+}
+
+/* 탭 버튼 */
+.card-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tab-btn {
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface2);
+  color: var(--txt2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--sans);
+}
+
+.tab-btn:hover {
+  background: var(--surface3);
+}
+
+.tab-btn.active {
+  background: var(--iafc-blue);
+  color: #fff;
+  border-color: var(--iafc-blue);
+}
+
+.tab-btn.tab-warning.active {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.tab-btn.tab-caution.active {
+  background: var(--warn);
+  border-color: var(--warn);
+}
+
+.tab-btn.tab-info.active {
+  background: var(--iafc-blue);
+  border-color: var(--iafc-blue);
+}
+
+/* 컴팩트 예측 테이블 */
+.compact-list {
+  padding: 0 !important;
+  overflow-x: auto;
+}
+
+.predictions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.predictions-table th,
+.predictions-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.predictions-table th {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--txt3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--surface2);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+.predictions-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.predictions-table tbody tr:hover {
+  background: var(--surface2);
+}
+
+.predictions-table .row-warning {
+  background: linear-gradient(90deg, var(--danger-lt) 0%, transparent 30%);
+}
+
+.predictions-table .row-caution {
+  background: linear-gradient(90deg, var(--warn-lt) 0%, transparent 30%);
+}
+
+.predictions-table .row-info {
+  background: linear-gradient(90deg, var(--iafc-blue-lt) 0%, transparent 30%);
+}
+
+.severity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.severity-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+.severity-badge.warning {
+  background: var(--danger);
+  color: #fff;
+}
+
+.severity-badge.caution {
+  background: var(--warn);
+  color: #fff;
+}
+
+.severity-badge.info {
+  background: var(--iafc-blue);
+  color: #fff;
+}
+
+.cell-equipment {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cell-equipment strong {
+  font-size: 12px;
+  color: var(--txt1);
+}
+
+.cell-location {
+  font-size: 10px;
+  color: var(--txt3);
+}
+
+.cell-prediction {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 300px;
+}
+
+.cell-title {
+  font-weight: 600;
+  color: var(--txt1);
+}
+
+.cell-desc {
+  font-size: 11px;
+  color: var(--txt3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell-action {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--iafc-green);
+  padding: 4px 8px;
+  background: var(--iafc-green-lt);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.cell-confidence {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--txt1);
+}
+
+.confidence-mini {
+  width: 50px;
+  height: 4px;
+  background: var(--surface3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.confidence-fill-mini {
+  height: 100%;
+  background: linear-gradient(90deg, var(--iafc-green), var(--iafc-blue));
+  border-radius: 2px;
+}
+
+/* 장비 수명 현황 */
+.lifecycle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lifecycle-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--surface2);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.lifecycle-item.status-warning {
+  border-left: 3px solid var(--danger);
+}
+
+.lifecycle-item.status-caution {
+  border-left: 3px solid var(--warn);
+}
+
+.lifecycle-item.status-normal {
+  border-left: 3px solid var(--ok);
+}
+
+.lifecycle-info {
+  flex: 1;
+  min-width: 120px;
+}
+
+.lifecycle-name {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--txt1);
+  margin-bottom: 2px;
+}
+
+.lifecycle-maintenance {
+  font-size: 10px;
+  color: var(--txt3);
+}
+
+.lifecycle-bar-wrap {
+  flex: 2;
+}
+
+.lifecycle-bar {
+  height: 8px;
+  background: var(--surface3);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.lifecycle-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.lifecycle-fill.normal {
+  background: linear-gradient(90deg, var(--ok), var(--ok-md));
+}
+
+.lifecycle-fill.caution {
+  background: linear-gradient(90deg, var(--warn), var(--warn-md));
+}
+
+.lifecycle-fill.warning {
+  background: linear-gradient(90deg, var(--danger), var(--danger-md));
+}
+
+.lifecycle-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--txt3);
+}
+
+.lifecycle-status {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-align: center;
+  min-width: 50px;
+}
+
+.lifecycle-status.normal {
+  background: var(--ok-lt);
+  color: var(--ok);
+}
+
+.lifecycle-status.caution {
+  background: var(--warn-lt);
+  color: var(--warn);
+}
+
+.lifecycle-status.warning {
+  background: var(--danger-lt);
+  color: var(--danger);
+}
+
+/* AI 학습 현황 */
+.learning-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .learning-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .learning-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.learning-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface2);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.learning-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--iafc-blue-lt);
+  color: var(--iafc-blue);
+}
+
+.learning-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.learning-content {
+  flex: 1;
+}
+
+.learning-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--txt1);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.learning-label {
+  font-size: 10px;
+  color: var(--txt3);
+}
+
+/* 다크 모드 */
+body.dark .prediction-item.severity-warning {
+  background: linear-gradient(90deg, var(--danger-lt) 0%, var(--surface2) 30%);
+}
+
+body.dark .prediction-item.severity-caution {
+  background: linear-gradient(90deg, var(--warn-lt) 0%, var(--surface2) 30%);
+}
+
+body.dark .prediction-item.severity-info {
+  background: linear-gradient(90deg, var(--iafc-blue-lt) 0%, var(--surface2) 30%);
+}
+
+body.dark .prediction-box {
+  background: var(--surface3);
+}
+
+body.dark .ai-summary-card {
+  background: var(--surface);
+}

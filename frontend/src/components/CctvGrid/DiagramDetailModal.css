@@ -1,0 +1,360 @@
+/* 도면 상세 모달 스타일 */
+
+.diagram-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.diagram-modal {
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 헤더 */
+.diagram-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.diagram-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.diagram-modal-id {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: #E07840;
+  background: rgba(255, 176, 136, 0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.diagram-modal-title h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--txt1);
+  margin: 0;
+}
+
+.diagram-modal-location {
+  font-size: 13px;
+  color: var(--txt3);
+}
+
+.diagram-modal-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--txt2);
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.diagram-modal-close:hover {
+  background: var(--surface3);
+  color: var(--txt1);
+}
+
+/* 메인 컨텐츠 */
+.diagram-modal-content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* 도면 영역 */
+.diagram-modal-diagram {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.diagram-modal-diagram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.diagram-wrapper {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.diagram-wrapper svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* 정보 패널 */
+.diagram-modal-info {
+  padding: 20px;
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  background: var(--surface2);
+}
+
+.diagram-modal-info h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--txt1);
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.diagram-modal-info h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--txt2);
+  margin: 20px 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 11px;
+  color: var(--txt3);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.info-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt1);
+}
+
+.info-value.highlight {
+  color: var(--iafc-green);
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+/* 장비 상세 */
+.equipment-details {
+  margin-top: 16px;
+}
+
+.detail-list {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid var(--border);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detail-row span:first-child {
+  color: var(--txt2);
+}
+
+.detail-row span:last-child {
+  color: var(--txt1);
+  font-weight: 500;
+  font-family: var(--mono);
+}
+
+/* AI 분석 결과 */
+.ai-analysis {
+  margin-top: 16px;
+}
+
+.analysis-status {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 8px;
+  align-items: flex-start;
+}
+
+.analysis-status.normal {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.analysis-status.warning {
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.analysis-status.danger {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.analysis-icon {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.analysis-status.normal .analysis-icon {
+  color: #10b981;
+}
+
+.analysis-status.warning .analysis-icon {
+  color: #d97706;
+}
+
+.analysis-status.danger .analysis-icon {
+  color: #dc2626;
+}
+
+.analysis-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--txt1);
+}
+
+/* 푸터 */
+.diagram-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.footer-hint {
+  font-size: 11px;
+  color: var(--txt3);
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--txt1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-secondary:hover {
+  background: var(--surface3);
+  border-color: var(--txt3);
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .diagram-modal-content {
+    grid-template-columns: 1fr;
+  }
+
+  .diagram-modal-info {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    max-height: 300px;
+  }
+
+  .diagram-modal-diagram {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .diagram-modal-backdrop {
+    padding: 10px;
+  }
+
+  .diagram-modal {
+    max-height: 95vh;
+  }
+
+  .diagram-modal-title {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .diagram-modal-title h2 {
+    font-size: 16px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

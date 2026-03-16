@@ -1,0 +1,435 @@
+/* InspectionLogPage (p8) - 점검일지 */
+
+.inspection-log-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Card 기본 스타일 */
+.inspection-log-page .card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* 상단 필터 바 */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-item label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--txt2);
+  white-space: nowrap;
+}
+
+.input-date,
+.input-select {
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface2);
+  color: var(--txt1);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.input-date:focus,
+.input-select:focus {
+  border-color: var(--iafc-blue);
+}
+
+.input-date {
+  min-width: 140px;
+}
+
+.input-select {
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.action-group {
+  display: flex;
+  gap: 8px;
+}
+
+/* 버튼 스타일 */
+.inspection-log-page .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.inspection-log-page .btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.inspection-log-page .btn-primary {
+  background: var(--iafc-blue);
+  color: #fff;
+}
+
+.inspection-log-page .btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.inspection-log-page .btn-secondary {
+  background: var(--surface3);
+  color: var(--txt1);
+  border: 1px solid var(--border);
+}
+
+.inspection-log-page .btn-secondary:hover {
+  background: var(--border);
+}
+
+/* 점검일지 본문 */
+.inspection-log-body .card-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.inspection-log-body .card-hd h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--txt1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.inspection-log-body .card-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--iafc-blue);
+}
+
+.log-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--txt2);
+  flex-wrap: wrap;
+}
+
+.meta-item strong {
+  color: var(--txt1);
+  margin-right: 4px;
+}
+
+.inspection-log-body .card-bd {
+  padding: 16px;
+}
+
+/* 섹션 스타일 */
+.log-section {
+  margin-bottom: 24px;
+}
+
+.log-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--txt1);
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-icon {
+  color: var(--iafc-blue);
+  font-size: 10px;
+}
+
+/* 테이블 스타일 */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.log-table th,
+.log-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+
+.log-table th {
+  font-weight: 600;
+  color: var(--txt2);
+  background: var(--surface2);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.log-table tbody tr:hover {
+  background: var(--surface2);
+}
+
+.cell-name {
+  font-weight: 500;
+  color: var(--txt1);
+}
+
+.cell-mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--txt2);
+}
+
+.cell-value {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--txt1);
+  text-align: center;
+}
+
+/* 배지 스타일 */
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.badge-ok {
+  background: rgba(46, 204, 113, 0.15);
+  color: var(--ok);
+}
+
+.badge-standby {
+  background: rgba(160, 167, 181, 0.15);
+  color: var(--txt3);
+}
+
+.badge-warn {
+  background: rgba(243, 156, 18, 0.15);
+  color: var(--warn);
+}
+
+.badge-danger {
+  background: rgba(231, 76, 60, 0.15);
+  color: var(--danger);
+}
+
+.badge-info {
+  background: rgba(52, 152, 219, 0.15);
+  color: var(--iafc-blue);
+}
+
+/* 알람 이력 리스트 */
+.alarm-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--surface2);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+}
+
+.alarm-history-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.alarm-history-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.alarm-time {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--txt3);
+  min-width: 50px;
+}
+
+.source-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.source-dx {
+  background: rgba(52, 152, 219, 0.15);
+  color: var(--iafc-blue);
+}
+
+.source-ai {
+  background: rgba(155, 89, 182, 0.15);
+  color: #9b59b6;
+}
+
+.alarm-message {
+  color: var(--txt1);
+  flex: 1;
+}
+
+/* 특이사항 섹션 */
+.remarks-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: var(--surface2);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+}
+
+.remark-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.remark-label {
+  font-weight: 600;
+  font-size: 11px;
+  min-width: 80px;
+}
+
+.remark-auto .remark-label {
+  color: var(--iafc-blue);
+}
+
+.remark-manual .remark-label {
+  color: var(--ok);
+}
+
+.remark-content {
+  color: var(--txt1);
+}
+
+.remark-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--txt1);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.remark-input:focus {
+  border-color: var(--iafc-blue);
+}
+
+.remark-input::placeholder {
+  color: var(--txt3);
+}
+
+/* 담당자 확인 섹션 */
+.confirm-section {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.confirm-form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 16px;
+  background: var(--surface2);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.confirm-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirm-item label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--txt2);
+}
+
+.confirm-datetime {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--txt1);
+  min-width: 150px;
+}
+
+.btn-confirm {
+  margin-left: auto;
+}
+
+/* 다크 모드 지원 */
+body.dark .log-table th {
+  background: var(--surface3);
+}
+
+body.dark .alarm-history-list,
+body.dark .remarks-section,
+body.dark .confirm-form {
+  background: var(--surface3);
+}
+
+body.dark .log-table tbody tr:hover {
+  background: var(--surface3);
+}
+
+/* 반응형은 데스크톱 전용이므로 생략 */
