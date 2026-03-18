@@ -18,6 +18,10 @@ export interface LayoutProps {
   showHeader?: boolean;
   /** 추가 클래스명 */
   className?: string;
+  /** 사이드바 열림 상태 (모바일에서 드로어로 사용) */
+  sidebarOpen?: boolean;
+  /** 사이드바 닫기 콜백 */
+  onSidebarClose?: () => void;
 }
 
 /**
@@ -46,12 +50,12 @@ export const Layout: React.FC<LayoutProps> = ({
   showSidebar = true,
   showHeader = true,
   className = '',
+  sidebarOpen = false,
+  onSidebarClose,
 }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   const closeSidebar = useCallback(() => {
-    setSidebarOpen(false);
-  }, []);
+    onSidebarClose?.();
+  }, [onSidebarClose]);
 
   // 레이아웃 클래스 조합
   const layoutClasses = [
@@ -78,9 +82,8 @@ export const Layout: React.FC<LayoutProps> = ({
         {/* Sidebar */}
         {showSidebar && (
           <>
-            <nav id="sb" className={sidebarOpen ? 'open' : ''}>
+            {/* Sidebar content from Sidebar component */}
               {sidebar}
-            </nav>
             {/* 모바일 오버레이 */}
             <div
               className={`sidebar-overlay ${sidebarOpen ? 'visible' : ''}`}

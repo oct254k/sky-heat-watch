@@ -168,8 +168,19 @@
   color: var(--iafc-green);
 }
 
-/* Responsive adjustments */
+/* ========================================
+   반응형 KPI 그리드
+   - 데스크톱: 5열
+   - 태블릿: 3열
+   - 모바일: 2열
+   ======================================== */
 @media (max-width: 1440px) {
+  .kpi-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1280px) {
   .kpi-row {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -178,17 +189,93 @@
 @media (max-width: 1024px) {
   .kpi-row {
     grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .kpi {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .kpi-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .kpi-num {
+    font-size: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .kpi-row {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .kpi {
+    padding: 10px 12px;
+  }
+
+  .kpi-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .kpi-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .kpi-name {
+    font-size: 10px;
+  }
+
+  .kpi-num {
+    font-size: 18px;
+  }
+
+  .kpi-num-unit {
+    font-size: 11px;
+  }
+
+  .kpi-sub {
+    font-size: 9px;
+  }
+
+  .tag {
+    font-size: 9px;
+    padding: 2px 5px;
   }
 }
 
 @media (max-width: 480px) {
   .kpi-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .kpi {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .kpi::before {
+    height: 2px;
+  }
+
+  .kpi-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .kpi-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .kpi-num {
+    font-size: 16px;
   }
 }

@@ -87,20 +87,117 @@
   margin-top: 4px;
 }
 
-/* 반응형: 태블릿 */
-@media (max-width: 1024px) {
+/* ========================================
+   반응형 밸브 그리드
+   - 데스크톱: 4열
+   - 태블릿: 2열
+   - 모바일: 2열
+   ======================================== */
+@media (max-width: 1280px) {
   .valve-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* 반응형: 모바일 */
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .valve-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .vc-hd {
+    padding: 8px 10px;
+  }
+
+  .vc-name {
+    font-size: 11px;
+  }
+
+  .vc-status {
+    font-size: 9px;
+    padding: 2px 6px;
   }
 
   .vc-bd {
     padding: 12px;
+  }
+
+  .vc-dial {
+    width: 60px;
+    height: 60px;
+  }
+
+  .vc-angle {
+    font-size: 12px;
+  }
+
+  .vc-cam {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .valve-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .vc {
+    border-radius: 8px;
+  }
+
+  .vc-hd {
+    padding: 6px 8px;
+  }
+
+  .vc-name {
+    font-size: 10px;
+  }
+
+  .vc-status {
+    font-size: 8px;
+    padding: 1px 5px;
+  }
+
+  .vc-bd {
+    padding: 10px;
+  }
+
+  .vc-dial {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 6px;
+  }
+
+  .vc-angle {
+    font-size: 11px;
+  }
+
+  .vc-cam {
+    font-size: 9px;
+    margin-top: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .valve-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 6px 8px;
+  }
+
+  .vc-bd {
+    padding: 8px;
+  }
+
+  .vc-dial {
+    width: 48px;
+    height: 48px;
+  }
+
+  .vc-angle {
+    font-size: 10px;
   }
 }

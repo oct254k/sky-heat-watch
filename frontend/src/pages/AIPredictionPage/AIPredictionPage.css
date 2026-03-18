@@ -710,3 +710,386 @@ body.dark .prediction-box {
 body.dark .ai-summary-card {
   background: var(--surface);
 }
+
+/* ==========================================
+   반응형 스타일
+   ========================================== */
+
+/* 반응형: 태블릿 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ai-prediction-page {
+    gap: 12px;
+  }
+
+  .power-anomaly-header {
+    padding: 8px 12px;
+  }
+
+  .power-anomaly-title {
+    font-size: 12px;
+  }
+
+  .power-anomaly-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .power-anomaly-item {
+    padding: 10px 12px;
+  }
+
+  .power-value {
+    font-size: 14px;
+  }
+
+  .ai-summary {
+    gap: 12px;
+  }
+
+  .ai-summary-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .ai-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ai-summary-value {
+    font-size: 24px;
+  }
+
+  .ai-grid {
+    gap: 12px;
+  }
+
+  .ai-prediction-page .card-hd {
+    padding: 12px 14px;
+  }
+
+  .ai-prediction-page .card-bd {
+    padding: 12px;
+  }
+
+  .predictions-table th,
+  .predictions-table td {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .lifecycle-item {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .lifecycle-name {
+    font-size: 11px;
+  }
+
+  .learning-stats {
+    gap: 12px;
+  }
+
+  .learning-stat {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .learning-value {
+    font-size: 16px;
+  }
+}
+
+/* 반응형: 모바일 (< 768px) */
+@media (max-width: 768px) {
+  .ai-prediction-page {
+    gap: 10px;
+  }
+
+  .power-anomaly-header {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .power-anomaly-title {
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .power-anomaly-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .power-anomaly-item {
+    padding: 10px;
+  }
+
+  .power-equipment {
+    font-size: 11px;
+  }
+
+  .power-value {
+    font-size: 14px;
+  }
+
+  .ai-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .ai-summary-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .ai-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .ai-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ai-summary-value {
+    font-size: 22px;
+  }
+
+  .ai-summary-label {
+    font-size: 11px;
+  }
+
+  .ai-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .ai-prediction-page .card-hd {
+    padding: 12px 14px;
+  }
+
+  .ai-prediction-page .card-hd h3 {
+    font-size: 13px;
+    width: 100%;
+  }
+
+  .ai-prediction-page .card-bd {
+    padding: 10px;
+  }
+
+  .card-tabs {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tab-btn {
+    padding: 8px 12px;
+    font-size: 11px;
+    min-height: 44px;
+  }
+
+  .predictions-table th,
+  .predictions-table td {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+
+  .severity-badge {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+
+  .cell-equipment strong {
+    font-size: 11px;
+  }
+
+  .cell-prediction {
+    max-width: 200px;
+  }
+
+  .cell-action {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .lifecycle-list {
+    gap: 10px;
+  }
+
+  .lifecycle-item {
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .lifecycle-info {
+    min-width: 100px;
+    flex: 1;
+  }
+
+  .lifecycle-bar-wrap {
+    flex: 2;
+    min-width: 120px;
+  }
+
+  .lifecycle-status {
+    min-width: 45px;
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+
+  .learning-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .learning-stat {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .learning-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .learning-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .learning-value {
+    font-size: 16px;
+  }
+
+  .learning-label {
+    font-size: 9px;
+  }
+}
+
+/* 반응형: 소형 모바일 (< 480px) */
+@media (max-width: 480px) {
+  .ai-prediction-page {
+    gap: 8px;
+  }
+
+  .power-anomaly-header {
+    padding: 8px 10px;
+  }
+
+  .power-anomaly-list {
+    grid-template-columns: 1fr;
+  }
+
+  .power-anomaly-item {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .power-type {
+    order: 1;
+    width: 50%;
+  }
+
+  .power-change {
+    order: 2;
+  }
+
+  .power-equipment {
+    order: 3;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .power-value {
+    order: 4;
+    font-size: 16px;
+  }
+
+  .power-threshold {
+    order: 5;
+    margin-left: 8px;
+  }
+
+  .ai-summary {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .ai-summary-card {
+    padding: 14px;
+    flex-direction: row;
+  }
+
+  .ai-summary-value {
+    font-size: 24px;
+  }
+
+  .ai-prediction-page .card-hd {
+    padding: 10px 12px;
+  }
+
+  .ai-prediction-page .card-bd {
+    padding: 8px;
+  }
+
+  .tab-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .predictions-table th,
+  .predictions-table td {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+
+  /* 일부 열 숨기기 */
+  .predictions-table th:nth-child(4),
+  .predictions-table td:nth-child(4),
+  .predictions-table th:nth-child(5),
+  .predictions-table td:nth-child(5) {
+    display: none;
+  }
+
+  .lifecycle-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lifecycle-info {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .lifecycle-bar-wrap {
+    width: 100%;
+  }
+
+  .lifecycle-status {
+    align-self: flex-end;
+  }
+
+  .learning-stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .learning-stat {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .learning-content {
+    text-align: right;
+  }
+}

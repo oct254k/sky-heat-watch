@@ -501,3 +501,219 @@ body.dark .connection-table th {
 body.dark .connection-table tbody tr:hover {
   background: var(--surface3);
 }
+
+/* ==========================================
+   반응형 스타일
+   ========================================== */
+
+/* 반응형: 태블릿 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .system-page {
+    gap: 12px;
+  }
+
+  .system-page .card-hd {
+    padding: 10px 12px;
+  }
+
+  .system-page .card-bd {
+    padding: 12px;
+  }
+
+  .server-card {
+    padding: 14px;
+  }
+
+  .server-name {
+    font-size: 13px;
+  }
+
+  .metric-label {
+    font-size: 10px;
+  }
+
+  .metric-value {
+    font-size: 11px;
+  }
+
+  .resource-chart-container {
+    height: 240px;
+  }
+
+  .connection-table th,
+  .connection-table td {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+}
+
+/* 반응형: 모바일 (< 768px) */
+@media (max-width: 768px) {
+  .system-page {
+    gap: 10px;
+  }
+
+  .system-page .card-hd {
+    padding: 10px 12px;
+  }
+
+  .system-page .card-hd h3 {
+    font-size: 12px;
+  }
+
+  .system-page .card-bd {
+    padding: 10px;
+  }
+
+  .system-page .card-actions {
+    flex-wrap: wrap;
+  }
+
+  .system-page .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .system-page .card-select {
+    padding: 8px 10px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .server-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .server-card {
+    padding: 12px;
+  }
+
+  .server-header {
+    margin-bottom: 10px;
+  }
+
+  .server-name {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .server-metrics {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .metric-bar {
+    height: 5px;
+  }
+
+  .server-footer {
+    padding-top: 10px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .server-info {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .resource-chart-container {
+    height: 200px;
+  }
+
+  .connection-summary {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 10px;
+  }
+
+  .connection-table {
+    font-size: 11px;
+  }
+
+  .connection-table th,
+  .connection-table td {
+    padding: 8px 6px;
+  }
+
+  .btn-action {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .protocol-badge {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+
+  .last-update {
+    font-size: 10px;
+  }
+
+  .chart-placeholder {
+    min-height: 160px;
+  }
+}
+
+/* 반응형: 소형 모바일 (< 480px) */
+@media (max-width: 480px) {
+  .system-page {
+    gap: 8px;
+  }
+
+  .system-page .card-hd {
+    padding: 8px 10px;
+  }
+
+  .system-page .card-bd {
+    padding: 8px;
+  }
+
+  .server-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .server-card {
+    padding: 14px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .server-header {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .server-name {
+    font-size: 13px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .server-metrics {
+    width: 100%;
+  }
+
+  .connection-table th,
+  .connection-table td {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+
+  /* 일부 열 숨기기 */
+  .connection-table th:nth-child(3),
+  .connection-table td:nth-child(3),
+  .connection-table th:nth-child(5),
+  .connection-table td:nth-child(5) {
+    display: none;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

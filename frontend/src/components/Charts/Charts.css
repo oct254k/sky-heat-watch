@@ -243,13 +243,204 @@ body.dark .stat-value {
   margin-top: 4px;
 }
 
-/* 반응형 도넛 차트 */
+/* ==========================================
+   반응형 스타일 (보강)
+   ========================================== */
+
+/* 반응형: 태블릿 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .chart-container {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .chart-title {
+    font-size: 13px;
+    padding-bottom: 6px;
+  }
+
+  .chart-wrapper {
+    height: 260px;
+  }
+
+  .chart-container.chart-sm .chart-wrapper {
+    height: 180px;
+  }
+
+  .chart-container.chart-lg .chart-wrapper {
+    height: 350px;
+  }
+
+  .chart-stats {
+    gap: 12px;
+    padding-top: 10px;
+  }
+
+  .stat-item {
+    font-size: 11px;
+  }
+
+  .charts-grid.charts-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-loading,
+  .chart-error,
+  .chart-empty {
+    height: 260px;
+    font-size: 13px;
+  }
+
+  .chiller-chart-center {
+    left: calc(50% - 50px);
+  }
+
+  .chiller-utilization {
+    font-size: 24px;
+  }
+
+  .chiller-label {
+    font-size: 11px;
+  }
+}
+
+/* 반응형: 모바일 (< 768px) - 기존 스타일 보강 */
 @media (max-width: 768px) {
+  .chart-container {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .chart-title {
+    font-size: 12px;
+    padding-bottom: 6px;
+  }
+
+  .chart-wrapper {
+    height: 220px;
+  }
+
+  .chart-container.chart-sm .chart-wrapper {
+    height: 160px;
+  }
+
+  .chart-container.chart-lg .chart-wrapper {
+    height: 300px;
+  }
+
+  .chart-container.chart-xl .chart-wrapper {
+    height: 350px;
+  }
+
+  .charts-grid {
+    gap: 12px;
+  }
+
+  .charts-grid.charts-grid-2,
+  .charts-grid.charts-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-stats {
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+  }
+
+  .stat-item {
+    justify-content: space-between;
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .chart-loading,
+  .chart-error,
+  .chart-empty {
+    height: 220px;
+    font-size: 12px;
+  }
+
+  .chart-loading::before {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .chart-error-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* 도넛 차트 센터 */
   .chiller-chart-center {
     left: 50%;
   }
 
   .chiller-utilization {
     font-size: 22px;
+  }
+
+  .chiller-label {
+    font-size: 11px;
+  }
+}
+
+/* 반응형: 소형 모바일 (< 480px) */
+@media (max-width: 480px) {
+  .chart-container {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .chart-title {
+    font-size: 11px;
+  }
+
+  .chart-wrapper {
+    height: 180px;
+  }
+
+  .chart-container.chart-sm .chart-wrapper {
+    height: 140px;
+  }
+
+  .chart-container.chart-lg .chart-wrapper {
+    height: 250px;
+  }
+
+  .charts-grid {
+    gap: 8px;
+  }
+
+  .chart-stats {
+    gap: 6px;
+    padding-top: 8px;
+  }
+
+  .stat-item {
+    font-size: 10px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+
+  .stat-value {
+    font-size: 11px;
+  }
+
+  .chart-loading,
+  .chart-error,
+  .chart-empty {
+    height: 180px;
+    font-size: 11px;
+  }
+
+  .chiller-utilization {
+    font-size: 20px;
+  }
+
+  .chiller-label {
+    font-size: 10px;
   }
 }

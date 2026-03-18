@@ -70,6 +70,9 @@ function App() {
   // Admin mode state
   const [isAdminMode, setIsAdminMode] = useState(false);
 
+  // Sidebar state (for mobile drawer)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   // Apply theme to body
   useEffect(() => {
     if (isDark) {
@@ -80,14 +83,51 @@ function App() {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }, [isDark]);
 
+  // Apply body scroll lock when sidebar is open (mobile)
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.classList.add('sidebar-open');
+    } else {
+      document.body.classList.remove('sidebar-open');
+    }
+    return () => {
+      document.body.classList.remove('sidebar-open');
+    };
+  }, [sidebarOpen]);
+
+  // Close sidebar when window resizes above mobile breakpoint
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && sidebarOpen) {
+        setSidebarOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [sidebarOpen]);
+
   // Theme toggle handler
   const handleThemeToggle = useCallback(() => {
     setIsDark(prev => !prev);
   }, []);
 
-  // Page change handler
+  // Page change handler (also close sidebar on mobile)
   const handlePageChange = useCallback((page: string) => {
     setActivePage(page);
+    // Close sidebar on page change (mobile)
+    if (window.innerWidth <= 768) {
+      setSidebarOpen(false);
+    }
+  }, []);
+
+  // Sidebar toggle handler
+  const handleSidebarToggle = useCallback(() => {
+    setSidebarOpen(prev => !prev);
+  }, []);
+
+  // Close sidebar handler
+  const closeSidebar = useCallback(() => {
+    setSidebarOpen(false);
   }, []);
 
   // Logout handler
@@ -140,6 +180,7 @@ function App() {
             onExport={handleExport}
             isAdminMode={isAdminMode}
             onAdminModeToggle={handleAdminModeToggle}
+            onSidebarToggle={handleSidebarToggle}
           />
         }
         sidebar={
@@ -148,9 +189,12 @@ function App() {
             onPageChange={handlePageChange}
             alarmCount={alarmCount}
             uptimePercent={99.8}
+            isOpen={sidebarOpen}
           />
         }
         header={Header}
+        sidebarOpen={sidebarOpen}
+        onSidebarClose={closeSidebar}
       >
         <CurrentPage isAdminMode={isAdminMode} />
       </Layout>

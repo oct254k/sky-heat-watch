@@ -141,6 +141,8 @@ export interface SidebarProps {
   uptimePercent?: number;
   /** 사이드바 접힘 상태 */
   collapsed?: boolean;
+  /** 사이드바 열림 상태 (모바일 드로어용) */
+  isOpen?: boolean;
   /** 추가 className */
   className?: string;
 }
@@ -156,6 +158,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onPageChange,
   alarmCount,
   uptimePercent = 99.8,
+  isOpen = false,
   collapsed = false,
   className = '',
 }) => {
@@ -174,7 +177,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <nav
       id="sb"
-      className={`sidebar ${collapsed ? 'collapsed' : ''} ${className}`.trim()}
+      className={`sidebar ${collapsed ? 'collapsed' : ''} ${isOpen ? 'open' : ''} ${className}`.trim()}
       role="navigation"
       aria-label="메인 네비게이션"
     >

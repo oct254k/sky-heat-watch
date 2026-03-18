@@ -479,3 +479,206 @@ body.dark .data-table th {
 body.dark .data-table tbody tr:hover {
   background: var(--surface3);
 }
+
+/* ==========================================
+   반응형 스타일
+   ========================================== */
+
+/* 반응형: 태블릿 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .analysis-page {
+    gap: 12px;
+  }
+
+  .analysis-page .card-hd {
+    padding: 10px 12px;
+  }
+
+  .analysis-page .card-bd {
+    padding: 12px;
+  }
+
+  .trend-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .trend-item {
+    padding: 14px 10px;
+  }
+
+  .trend-value {
+    font-size: 16px;
+  }
+
+  .video-compare {
+    gap: 10px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .chart-placeholder {
+    min-height: 220px;
+  }
+}
+
+/* 반응형: 모바일 (< 768px) */
+@media (max-width: 768px) {
+  .analysis-page {
+    gap: 10px;
+  }
+
+  .analysis-page .card-hd {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .analysis-page .card-hd h3 {
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .analysis-page .card-bd {
+    padding: 10px;
+  }
+
+  .analysis-page .card-actions {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .analysis-page .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .analysis-page .card-select {
+    padding: 8px 10px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .analysis-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .video-compare {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .video-frame {
+    aspect-ratio: 16/10;
+  }
+
+  .video-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .trend-summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .trend-item {
+    padding: 12px 10px;
+  }
+
+  .trend-value {
+    font-size: 16px;
+  }
+
+  .trend-label {
+    font-size: 10px;
+  }
+
+  .trend-desc {
+    font-size: 9px;
+  }
+
+  .data-table {
+    font-size: 11px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 6px;
+    white-space: nowrap;
+  }
+
+  .chart-placeholder {
+    min-height: 200px;
+  }
+
+  .chart-placeholder-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .chart-placeholder p {
+    font-size: 12px;
+  }
+}
+
+/* 반응형: 소형 모바일 (< 480px) */
+@media (max-width: 480px) {
+  .analysis-page {
+    gap: 8px;
+  }
+
+  .analysis-page .card-hd {
+    padding: 8px 10px;
+  }
+
+  .analysis-page .card-bd {
+    padding: 8px;
+  }
+
+  .trend-summary {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .trend-item {
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .trend-value {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+
+  .video-label {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .label-badge {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+
+  .status-badge {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+}

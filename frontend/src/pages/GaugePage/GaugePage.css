@@ -346,3 +346,192 @@ body.dark .gauge-card.gauge-warning {
 body.dark .gauge-card.gauge-danger {
   background: var(--danger-lt);
 }
+
+/* ==========================================
+   반응형 스타일
+   ========================================== */
+
+/* 반응형: 태블릿 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gauge-page {
+    gap: 12px;
+  }
+
+  .gauge-page .card-hd {
+    padding: 10px 12px;
+  }
+
+  .gauge-page .card-bd {
+    padding: 12px;
+  }
+
+  .gauge-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .gauge-card {
+    padding: 14px;
+  }
+
+  .gauge-number {
+    font-size: 28px;
+  }
+
+  .gauge-name {
+    font-size: 12px;
+  }
+
+  .chart-placeholder {
+    min-height: 220px;
+  }
+}
+
+/* 반응형: 모바일 (< 768px) */
+@media (max-width: 768px) {
+  .gauge-page {
+    gap: 10px;
+  }
+
+  .gauge-page .card-hd {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .gauge-page .card-hd h3 {
+    font-size: 12px;
+  }
+
+  .gauge-page .card-bd {
+    padding: 10px;
+  }
+
+  .gauge-page .card-actions {
+    flex-wrap: wrap;
+  }
+
+  .gauge-page .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .gauge-page .card-select {
+    padding: 8px 10px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .gauge-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .gauge-card {
+    padding: 12px;
+  }
+
+  .gauge-number {
+    font-size: 26px;
+  }
+
+  .gauge-unit {
+    font-size: 12px;
+  }
+
+  .gauge-name {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .gauge-visual {
+    max-width: 160px;
+  }
+
+  .gauge-range {
+    font-size: 9px;
+    gap: 6px;
+  }
+
+  .last-update {
+    font-size: 10px;
+  }
+
+  .chart-placeholder {
+    min-height: 200px;
+  }
+
+  .chart-placeholder-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .chart-placeholder p {
+    font-size: 12px;
+  }
+}
+
+/* 반응형: 소형 모바일 (< 480px) */
+@media (max-width: 480px) {
+  .gauge-page {
+    gap: 8px;
+  }
+
+  .gauge-page .card-hd {
+    padding: 8px 10px;
+  }
+
+  .gauge-page .card-bd {
+    padding: 8px;
+  }
+
+  .gauge-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .gauge-card {
+    padding: 14px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .gauge-header {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .gauge-visual {
+    order: 3;
+    width: 100%;
+    max-width: none;
+    margin: 10px 0;
+  }
+
+  .gauge-value {
+    margin: 0;
+  }
+
+  .gauge-number {
+    font-size: 28px;
+  }
+
+  .gauge-name {
+    order: 4;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .gauge-range {
+    order: 5;
+    width: 100%;
+  }
+
+  .gauge-limits {
+    order: 6;
+    width: 100%;
+  }
+}

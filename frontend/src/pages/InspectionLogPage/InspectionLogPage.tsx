@@ -51,33 +51,26 @@ interface EditedValues {
   };
 }
 
-// 냉동기 운전 현황 목데이터
+// 냉동기 운전 현황 목데이터 (핵심 4대)
 const initialChillerData: ChillerData[] = [
   { id: 'AICC #1', status: '가동', highPressure: 13.5, lowPressure: 4.2, oilLevel: 65, dischargeTemp: 72 },
   { id: 'AICC #2', status: '가동', highPressure: 13.2, lowPressure: 4.0, oilLevel: 68, dischargeTemp: 70 },
   { id: '관제탑 #1', status: '가동', highPressure: 14.0, lowPressure: 4.5, oilLevel: 60, dischargeTemp: 75 },
-  { id: '관제탑 #2', status: '대기', highPressure: null, lowPressure: null, oilLevel: null, dischargeTemp: null },
-  { id: '공항청사 #1', status: '가동', highPressure: 13.8, lowPressure: 4.3, oilLevel: 62, dischargeTemp: 73 },
-  { id: '공항청사 #2', status: '대기', highPressure: null, lowPressure: null, oilLevel: null, dischargeTemp: null },
+  { id: '공항청사 #1', status: '대기', highPressure: null, lowPressure: null, oilLevel: null, dischargeTemp: null },
 ];
 
-// 진동 센서 측정값 목데이터
+// 진동 센서 측정값 목데이터 (핵심 4개)
 const initialVibrationData: VibrationData[] = [
-  { id: 'VIB-01', location: 'AICC 냉각탑 #1', rms: 2.1, peak: 3.2, status: '정상' },
-  { id: 'VIB-02', location: 'AICC 냉각탑 #2', rms: 2.3, peak: 3.5, status: '정상' },
-  { id: 'VIB-03', location: 'AICC 팬류 F-01', rms: 3.8, peak: 5.1, status: '주의' },
-  { id: 'VIB-04', location: 'AICC 팬류 F-02', rms: 1.9, peak: 2.8, status: '정상' },
-  { id: 'VIB-05', location: '관제탑 냉동기 #1', rms: 1.8, peak: 2.6, status: '정상' },
-  { id: 'VIB-06', location: '관제탑 팬류 F-03', rms: 2.4, peak: 3.6, status: '정상' },
-  { id: 'VIB-07', location: '공항청사 냉동기 #1', rms: 1.7, peak: 2.5, status: '정상' },
-  { id: 'VIB-08', location: '공항청사 팬류 F-04', rms: 2.1, peak: 3.1, status: '정상' },
+  { id: 'VIB-01', location: 'AICC 냉각탑', rms: 2.1, peak: 3.2, status: '정상' },
+  { id: 'VIB-02', location: 'AICC 팬류', rms: 3.8, peak: 5.1, status: '주의' },
+  { id: 'VIB-03', location: '관제탑 냉동기', rms: 1.8, peak: 2.6, status: '정상' },
+  { id: 'VIB-04', location: '공항청사 냉동기', rms: 1.7, peak: 2.5, status: '정상' },
 ];
 
-// 알람 발생 이력 목데이터
+// 알람 발생 이력 목데이터 (핵심 2건)
 const mockAlarmHistory = [
-  { time: '14:32', source: 'DX', level: '긴급', message: '팬류 F-01 진동 임계값 초과 (3.8mm/s > 3.0mm/s)' },
-  { time: '09:15', source: 'AI', level: '경고', message: '냉동기 #1 베어링 결함 징후 감지' },
-  { time: '08:30', source: 'DX', level: '정보', message: '일일 점검 시작' },
+  { time: '14:32', source: 'DX', level: '긴급', message: '팬류 F-01 진동 임계값 초과' },
+  { time: '09:15', source: 'AI', level: '경고', message: '냉동기 #1 베어링 결함 징후' },
 ];
 
 // 담당자 목록 목데이터

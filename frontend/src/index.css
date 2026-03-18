@@ -8,6 +8,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================
+   전역 폰트 선명도 최적화
+   ======================================== */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ========================================
+   한국어 최적화 전역 스타일
+   ======================================== */
+html {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic',
+               'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em; /* 한글 자간 최적화 */
+  word-break: keep-all;    /* 한글 줄바꿈 단어 기준 */
+  line-height: 1.6;
+}
+
+body {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* 숫자 정렬 일관성 */
+.font-tabular,
+.mono,
+[class*="mono"] {
+  font-variant-numeric: tabular-nums;
+}
+
 @layer base {
   :root {
     --background: oklch(1 0 0);
@@ -129,5 +162,103 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* ========================================
+   타이포그래피 스케일
+   ======================================== */
+/* 페이지 메인 타이틀 (h2) */
+h2, .text-h2 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 섹션 헤더 (h3) */
+h3, .text-h3 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* 소형 레이블/뱃지 */
+.text-label {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+/* ========================================
+   다크모드 폰트 최적화
+   ======================================== */
+.dark body {
+  color: rgba(255, 255, 255, 0.9); /* 순수 흰색 대신 살짝 낮춰 눈부심 방지 */
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.dark .text-muted, .dark [class*="txt3"] {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ========================================
+   반응형 유틸리티 클래스
+   ======================================== */
+/* 모바일 오버레이 배경 (body scroll lock) */
+body.sidebar-open {
+  overflow: hidden;
+}
+
+/* 터치 타겟 최소 크기 보장 */
+@media (max-width: 768px) {
+  button,
+  [role="button"],
+  .nav-item,
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* 텍스트 잘림 방지 유틸리티 */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========================================
+   모바일 전용 유틸리티
+   ======================================== */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .show-desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .show-mobile-only {
+    display: none !important;
   }
 }

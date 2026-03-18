@@ -489,3 +489,253 @@ body.dark .rules-table th {
 body.dark .rules-table tbody tr:hover {
   background: var(--surface3);
 }
+
+/* ==========================================
+   반응형 스타일
+   ========================================== */
+
+/* 반응형: 태블릿 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .settings-page {
+    gap: 12px;
+  }
+
+  .settings-page .card-hd {
+    padding: 10px 12px;
+  }
+
+  .settings-page .card-bd {
+    padding: 12px;
+  }
+
+  .threshold-item {
+    padding: 14px;
+  }
+
+  .threshold-header {
+    margin-bottom: 14px;
+  }
+
+  .threshold-name {
+    font-size: 13px;
+  }
+
+  .slider-header {
+    margin-bottom: 6px;
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .save-section {
+    padding: 14px 18px;
+  }
+}
+
+/* 반응형: 모바일 (< 768px) */
+@media (max-width: 768px) {
+  .settings-page {
+    gap: 10px;
+  }
+
+  .settings-page .card-hd {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .settings-page .card-hd h3 {
+    font-size: 12px;
+  }
+
+  .settings-page .card-bd {
+    padding: 10px;
+  }
+
+  .settings-page .card-actions {
+    flex-wrap: wrap;
+  }
+
+  .settings-page .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .settings-page .btn-lg {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .threshold-list {
+    gap: 16px;
+  }
+
+  .threshold-item {
+    padding: 12px;
+  }
+
+  .threshold-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .threshold-info {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .threshold-name {
+    font-size: 13px;
+    width: 100%;
+  }
+
+  .threshold-sliders {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .slider-group {
+    gap: 8px;
+  }
+
+  .slider-label {
+    font-size: 10px;
+  }
+
+  .slider {
+    height: 8px;
+  }
+
+  .slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  .range-bar {
+    height: 10px;
+  }
+
+  .rules-table {
+    font-size: 11px;
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 8px 6px;
+  }
+
+  .toggle {
+    width: 44px;
+    height: 24px;
+  }
+
+  .toggle-slider:before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .toggle input:checked + .toggle-slider:before {
+    transform: translateX(20px);
+  }
+
+  .btn-action {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .save-section {
+    padding: 14px 16px;
+  }
+
+  .save-info {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .save-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 반응형: 소형 모바일 (< 480px) */
+@media (max-width: 480px) {
+  .settings-page {
+    gap: 8px;
+  }
+
+  .settings-page .card-hd {
+    padding: 8px 10px;
+  }
+
+  .settings-page .card-bd {
+    padding: 8px;
+  }
+
+  .threshold-item {
+    padding: 10px;
+  }
+
+  .threshold-sliders {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .slider-group {
+    padding: 10px;
+    background: var(--surface);
+    border-radius: var(--r);
+    border: 1px solid var(--border);
+  }
+
+  .threshold-visualization {
+    margin-top: 12px;
+  }
+
+  .range-labels {
+    font-size: 9px;
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+
+  /* 일부 열 숨기기 */
+  .rules-table th:nth-child(3),
+  .rules-table td:nth-child(3) {
+    display: none;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .save-section {
+    padding: 12px;
+  }
+
+  .save-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .save-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

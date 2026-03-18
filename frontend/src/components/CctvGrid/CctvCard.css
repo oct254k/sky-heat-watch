@@ -488,33 +488,174 @@
   animation: camFadeIn 0.3s ease-out;
 }
 
-/* ========== Responsive ========== */
+/* ========================================
+   반응형 CCTV 그리드
+   - 데스크톱: 4열
+   - 태블릿: 2열
+   - 모바일: 1열
+   ======================================== */
 @media (max-width: 1440px) {
   .cctv-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .cctv-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cctv-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .card-hd {
+    padding: 10px 12px;
+  }
+
+  .card-hd h3 {
+    font-size: 12px;
+  }
+
+  .ctabs {
+    padding: 6px 12px 0;
+  }
+
+  .ctab {
+    padding: 4px 10px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 768px) {
   .cctv-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 8px 10px;
   }
 
   .ctabs {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    padding: 6px 10px 0;
+    gap: 0;
+  }
+
+  .ctab {
+    padding: 4px 8px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .card-hd {
+    padding: 8px 10px;
+    flex-wrap: wrap;
+  }
+
+  .card-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .card-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .card-hd .ml {
+    gap: 6px;
+  }
+
+  .cctv-tag-pill {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .cctv-view-toggle {
+    gap: 4px;
+  }
+
+  .cvt-lbl {
+    font-size: 9px;
+  }
+
+  .view-switch {
+    width: 32px;
+    height: 18px;
+  }
+
+  .view-track::before {
+    width: 12px;
+    height: 12px;
+  }
+
+  .view-switch input:checked + .view-track::before {
+    transform: translateX(14px);
+  }
+
+  /* 카메라 카드 */
+  .cam {
+    border-radius: 6px;
+  }
+
+  .cam-id {
+    font-size: 8px;
+  }
+
+  .cam-loc {
+    font-size: 8px;
+  }
+
+  .cam-live {
+    font-size: 7px;
+    padding: 1px 3px;
+  }
+
+  .cam-ai {
+    font-size: 7px;
+    padding: 1px 4px;
+  }
+
+  .cam-type {
+    font-size: 7px;
+    padding: 1px 4px;
+  }
+
+  .cam-val {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+
+  .cam-ov {
+    padding: 10px 5px 4px;
   }
 }
 
 @media (max-width: 480px) {
   .cctv-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .cam {
+    aspect-ratio: 16/9;
+  }
+
+  .card-hd {
+    padding: 8px;
+  }
+
+  .card-hd h3 {
+    font-size: 11px;
+  }
+
+  .card-hd .sub {
+    display: none;
   }
 }
 

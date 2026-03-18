@@ -189,22 +189,231 @@ body.sb-collapsed #sb,
   color: var(--txt3);
 }
 
-/* Responsive: Tablet and below */
-@media (max-width: 1024px) {
+/* ========================================
+   반응형: 태블릿 (768px ~ 1024px)
+   - 축소 모드: 아이콘만 표시 (64px)
+   - 호버 시 확장
+   ======================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #sb,
+  .sidebar {
+    width: 64px;
+    overflow: hidden;
+  }
+
+  #sb:hover,
+  .sidebar:hover {
+    width: var(--sb);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* 그룹 라벨 숨김 */
+  .sb-group-lbl {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: opacity 0.15s ease, height 0.15s ease;
+  }
+
+  #sb:hover .sb-group-lbl,
+  .sidebar:hover .sb-group-lbl {
+    opacity: 1;
+    height: auto;
+    padding: 6px 14px 2px;
+  }
+
+  /* nav-item 중앙 정렬 (축소 모드) */
+  .nav-item {
+    justify-content: center;
+    padding: 12px;
+    position: relative;
+  }
+
+  #sb:hover .nav-item,
+  .sidebar:hover .nav-item {
+    justify-content: flex-start;
+    padding: 8px 14px;
+  }
+
+  /* 텍스트 숨김 */
+  .nav-item > span:not(.nav-badge) {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: opacity 0.15s ease;
+  }
+
+  #sb:hover .nav-item > span:not(.nav-badge),
+  .sidebar:hover .nav-item > span:not(.nav-badge) {
+    opacity: 1;
+    width: auto;
+  }
+
+  /* 배지 위치 조정 (축소 모드) */
+  .nav-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    margin-left: 0;
+  }
+
+  #sb:hover .nav-badge,
+  .sidebar:hover .nav-badge {
+    position: static;
+    margin-left: auto;
+  }
+
+  /* 아이콘 크기 확대 (축소 모드) */
+  .nav-item svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  #sb:hover .nav-item svg,
+  .sidebar:hover .nav-item svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* 푸터 숨김 */
+  .sb-footer .sb-uptime-lbl,
+  .sb-footer .sb-sub {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.15s ease;
+  }
+
+  #sb:hover .sb-footer .sb-uptime-lbl,
+  #sb:hover .sb-footer .sb-sub,
+  .sidebar:hover .sb-footer .sb-uptime-lbl,
+  .sidebar:hover .sb-footer .sb-sub {
+    opacity: 1;
+    height: auto;
+  }
+
+  .sb-footer {
+    padding: 8px;
+  }
+
+  #sb:hover .sb-footer,
+  .sidebar:hover .sb-footer {
+    padding: 10px 14px;
+  }
+
+  /* 값만 표시 (축소 모드) */
+  .sb-val {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  #sb:hover .sb-val,
+  .sidebar:hover .sb-val {
+    font-size: 11px;
+    text-align: left;
+  }
+
+  /* 프로그레스 바 숨김 */
+  .sb-bar {
+    display: none;
+  }
+
+  #sb:hover .sb-bar,
+  .sidebar:hover .sb-bar {
+    display: block;
+  }
+
+  /* 툴팁 (호버 시 메뉴명 표시) */
+  .nav-item::after {
+    content: attr(aria-label);
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--txt1);
+    color: var(--surface);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .nav-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #sb:hover .nav-item::after,
+  .sidebar:hover .nav-item::after {
+    display: none;
+  }
+}
+
+/* ========================================
+   반응형: 모바일 (< 768px)
+   - 드로어 모드 (슬라이드 인/아웃)
+   ======================================== */
+@media (max-width: 768px) {
   #sb,
   .sidebar {
     position: fixed;
     left: 0;
-    top: 0;
-    height: 100vh;
-    z-index: 1000;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    top: var(--gnb);
+    width: 280px;
+    max-width: 85vw;
+    height: calc(100vh - var(--gnb));
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
   }
 
-  #sb.collapsed,
-  .sidebar.collapsed {
-    transform: translateX(-100%);
-    width: var(--sb);
-    opacity: 1;
+  #sb.open,
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.25);
+  }
+
+  /* 모바일에서 터치 타겟 크기 확대 */
+  .nav-item {
+    min-height: 44px;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .nav-item svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sb-group-lbl {
+    font-size: 10px;
+    padding: 10px 16px 4px;
+  }
+
+  .sb-divider {
+    margin: 8px 0;
+  }
+
+  .sb-footer {
+    padding: 12px 16px;
+  }
+}
+
+/* ========================================
+   반응형: 소형 모바일 (< 480px)
+   ======================================== */
+@media (max-width: 480px) {
+  #sb,
+  .sidebar {
+    width: 100%;
+    max-width: 320px;
   }
 }

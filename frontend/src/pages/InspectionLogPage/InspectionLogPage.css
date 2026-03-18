@@ -3,7 +3,7 @@
 .inspection-log-page {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 /* Card 기본 스타일 */
@@ -156,12 +156,12 @@
 }
 
 .inspection-log-body .card-bd {
-  padding: 16px;
+  padding: 12px;
 }
 
 /* 섹션 스타일 */
 .log-section {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .log-section:last-child {
@@ -169,10 +169,10 @@
 }
 
 .section-title {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--txt1);
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -196,7 +196,7 @@
 
 .log-table th,
 .log-table td {
-  padding: 10px 14px;
+  padding: 6px 10px;
   text-align: left;
   border: 1px solid var(--border);
 }
@@ -814,4 +814,382 @@ body.dark .modal-footer {
   }
 }
 
-/* 반응형은 데스크톱 전용이므로 생략 */
+/* ==========================================
+   반응형 스타일
+   ========================================== */
+
+/* 반응형: 태블릿 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .inspection-log-page {
+    gap: 12px;
+  }
+
+  .filter-bar {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .filter-group {
+    gap: 12px;
+  }
+
+  .filter-item {
+    gap: 6px;
+  }
+
+  .input-date,
+  .input-select {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .inspection-log-body .card-hd {
+    padding: 12px 14px;
+  }
+
+  .inspection-log-body .card-bd {
+    padding: 14px;
+  }
+
+  .log-section {
+    margin-bottom: 20px;
+  }
+
+  .log-table th,
+  .log-table td {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .alarm-history-list {
+    padding: 10px;
+  }
+
+  .confirm-form {
+    padding: 10px 14px;
+    gap: 16px;
+  }
+
+  .modal-content {
+    min-width: 360px;
+    max-width: 450px;
+  }
+}
+
+/* 반응형: 모바일 (< 768px) */
+@media (max-width: 768px) {
+  .inspection-log-page {
+    gap: 10px;
+  }
+
+  .filter-bar {
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .filter-item {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .filter-item label {
+    min-width: 60px;
+  }
+
+  .input-date,
+  .input-select {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+
+  .action-group {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .inspection-log-page .btn {
+    padding: 10px 14px;
+    font-size: 13px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .inspection-log-body .card-hd {
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .inspection-log-body .card-hd h3 {
+    font-size: 13px;
+  }
+
+  .log-meta {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+    width: 100%;
+  }
+
+  .meta-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .inspection-log-body .card-bd {
+    padding: 12px;
+  }
+
+  .log-section {
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .log-table {
+    font-size: 11px;
+  }
+
+  .log-table th,
+  .log-table td {
+    padding: 8px 6px;
+  }
+
+  .badge {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .alarm-history-list {
+    padding: 10px;
+  }
+
+  .alarm-history-item {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 0;
+  }
+
+  .alarm-time {
+    font-size: 10px;
+    min-width: auto;
+  }
+
+  .alarm-message {
+    width: 100%;
+    order: 3;
+    margin-top: 4px;
+  }
+
+  .remarks-section {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .remark-item {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .remark-label {
+    min-width: auto;
+  }
+
+  .remark-input {
+    width: 100%;
+    padding: 10px 12px;
+    min-height: 44px;
+  }
+
+  .confirm-form {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .confirm-item {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-confirm {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .edit-guide {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .cell-edit-input {
+    width: 70px;
+    padding: 6px;
+    font-size: 11px;
+    min-height: 44px;
+  }
+
+  .modal-content {
+    min-width: auto;
+    max-width: calc(100vw - 32px);
+    margin: 16px;
+  }
+
+  .modal-header {
+    padding: 12px 14px;
+  }
+
+  .modal-header h4 {
+    font-size: 13px;
+  }
+
+  .modal-body {
+    padding: 14px;
+  }
+
+  .modal-footer {
+    padding: 10px 14px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .edit-summary {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .preset-buttons {
+    gap: 6px;
+  }
+
+  .preset-btn {
+    padding: 10px 12px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .custom-reason-input {
+    padding: 10px 12px;
+    min-height: 44px;
+  }
+}
+
+/* 반응형: 소형 모바일 (< 480px) */
+@media (max-width: 480px) {
+  .inspection-log-page {
+    gap: 8px;
+  }
+
+  .filter-bar {
+    padding: 8px 10px;
+  }
+
+  .inspection-log-body .card-hd {
+    padding: 10px 12px;
+  }
+
+  .inspection-log-body .card-bd {
+    padding: 10px;
+  }
+
+  .log-table th,
+  .log-table td {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+
+  /* 일부 열 숨기기 */
+  .log-table th:nth-child(2),
+  .log-table td:nth-child(2) {
+    display: none;
+  }
+
+  .alarm-history-list {
+    padding: 8px;
+  }
+
+  .alarm-history-item {
+    font-size: 11px;
+  }
+
+  .remarks-section {
+    padding: 8px;
+  }
+
+  .confirm-form {
+    padding: 10px;
+  }
+
+  .modal-content {
+    margin: 8px;
+    max-width: calc(100vw - 16px);
+  }
+
+  .preset-buttons {
+    flex-direction: column;
+  }
+
+  .preset-btn {
+    width: 100%;
+  }
+
+  .edit-history-table .cell-reason {
+    max-width: 120px;
+    font-size: 10px;
+  }
+}
+
+/* 2열 그리드 레이아웃 - 데스크톱 */
+@media (min-width: 1024px) {
+  .inspection-log-body .card-bd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+
+  .inspection-log-body .edit-guide {
+    grid-column: 1 / -1;
+  }
+
+  .inspection-log-body .log-section:nth-child(2) {
+    grid-column: 1;
+  }
+
+  .inspection-log-body .log-section:nth-child(3) {
+    grid-column: 2;
+  }
+
+  .inspection-log-body .log-section:nth-child(4),
+  .inspection-log-body .log-section:nth-child(5),
+  .inspection-log-body .edit-history-section,
+  .inspection-log-body .confirm-section {
+    grid-column: 1 / -1;
+  }
+
+  .log-section {
+    margin-bottom: 0;
+  }
+}

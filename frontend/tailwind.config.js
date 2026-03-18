@@ -13,7 +13,26 @@ export default {
         "2xl": "1400px",
       },
     },
+    // 반응형 브레이크포인트 커스텀
+    screens: {
+      'xs': '375px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1440px',
+    },
     extend: {
+      // 한국어 최적화 폰트 스택
+      fontFamily: {
+        sans: ['Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      // 한글 자간 최적화
+      letterSpacing: {
+        'korean': '-0.02em',
+        'label': '0.02em',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

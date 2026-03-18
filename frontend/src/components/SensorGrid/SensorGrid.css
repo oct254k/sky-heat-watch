@@ -149,36 +149,129 @@
   stroke-width: 2;
 }
 
-/* Responsive adjustments */
+/* ========================================
+   반응형 센서 그리드
+   - 데스크톱: 6열
+   - 태블릿: 3~4열
+   - 모바일: 2열
+   - 소형 모바일: 1열
+   ======================================== */
 @media (max-width: 1440px) {
   .sensor-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .sensor-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sensor-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 10px 12px;
+  }
+
+  .sc {
+    padding: 8px 10px;
+  }
+
+  .sc-id {
+    font-size: 9px;
+  }
+
+  .sc-loc {
+    font-size: 9px;
+  }
+
+  .sc-temp {
+    font-size: 14px;
+  }
+
+  .card-hd {
+    padding: 10px 12px;
   }
 }
 
 @media (max-width: 768px) {
   .sensor-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .sc {
+    padding: 8px 10px;
+    border-radius: 6px;
+  }
+
+  .sc-id {
+    font-size: 9px;
+    gap: 4px;
+  }
+
+  .sc-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .sc-loc {
+    font-size: 8px;
+    margin-bottom: 4px;
+  }
+
+  .sc-temp {
+    font-size: 13px;
+  }
+
+  .sc-unit {
+    font-size: 9px;
+  }
+
+  .sc-disp {
+    font-size: 10px;
+  }
+
+  .card-hd {
+    padding: 8px 10px;
+  }
+
+  .card-hd h3 {
+    font-size: 12px;
+  }
+
+  .card-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .card-icon svg {
+    width: 14px;
+    height: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .sensor-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 6px 8px;
   }
 
   .sc {
-    padding: 12px;
+    padding: 8px;
   }
 
   .sc-temp {
-    font-size: 18px;
+    font-size: 14px;
+  }
+
+  .card-hd {
+    padding: 6px 8px;
   }
 }
 

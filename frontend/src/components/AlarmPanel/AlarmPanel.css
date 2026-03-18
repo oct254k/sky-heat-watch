@@ -236,3 +236,185 @@
 .dark .al-item:hover {
   filter: brightness(1.1);
 }
+
+/* ========================================
+   반응형: 태블릿 (768px ~ 1024px)
+   ======================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .alarm-panel {
+    border-radius: 8px;
+  }
+
+  .alarm-panel-header {
+    padding: 10px 12px;
+  }
+
+  .alarm-panel-title {
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .alarm-panel-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .al-item {
+    padding: 8px 10px;
+  }
+
+  .al-level {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+
+  .al-time {
+    font-size: 9px;
+  }
+
+  .al-title {
+    font-size: 11px;
+  }
+
+  .al-desc {
+    font-size: 10px;
+  }
+
+  .al-vals {
+    font-size: 9px;
+    gap: 12px;
+  }
+}
+
+/* ========================================
+   반응형: 모바일 (< 768px)
+   - 하단 슬라이드업 시트로 변경
+   ======================================== */
+@media (max-width: 768px) {
+  /* 알람 패널을 하단 시트로 변환 */
+  .dashboard-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    max-height: 50vh;
+    transform: translateY(calc(100% - 48px));
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dashboard-sidebar.expanded {
+    transform: translateY(0);
+  }
+
+  .dashboard-sidebar .alarm-panel {
+    max-height: 50vh;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* 헤더에 드래그 핸들 추가 */
+  .alarm-panel-header {
+    cursor: pointer;
+    padding: 8px 12px;
+    position: relative;
+  }
+
+  .alarm-panel-header::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 4px;
+    background: var(--border2);
+    border-radius: 2px;
+  }
+
+  .alarm-panel-title {
+    font-size: 11px;
+    padding-top: 6px;
+  }
+
+  .alarm-panel-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .al-item {
+    padding: 8px 10px;
+    min-height: 44px;
+  }
+
+  .al-level {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+
+  .al-time {
+    font-size: 9px;
+  }
+
+  .al-title {
+    font-size: 11px;
+  }
+
+  .al-desc {
+    font-size: 10px;
+  }
+
+  .al-vals {
+    font-size: 9px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .alarm-panel-list {
+    max-height: calc(50vh - 60px);
+  }
+}
+
+/* ========================================
+   반응형: 소형 모바일 (< 480px)
+   ======================================== */
+@media (max-width: 480px) {
+  .dashboard-sidebar {
+    max-height: 60vh;
+  }
+
+  .dashboard-sidebar .alarm-panel {
+    max-height: 60vh;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .alarm-panel-header {
+    padding: 6px 10px;
+  }
+
+  .alarm-panel-title {
+    font-size: 10px;
+  }
+
+  .al-item {
+    padding: 6px 8px;
+  }
+
+  .al-hd {
+    margin-bottom: 3px;
+  }
+
+  .al-title {
+    font-size: 10px;
+    margin-bottom: 1px;
+  }
+
+  .al-desc {
+    font-size: 9px;
+  }
+
+  .al-vals {
+    font-size: 8px;
+    margin-top: 3px;
+  }
+}

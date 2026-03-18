@@ -517,3 +517,321 @@
   color: #FFD93D;
   font-weight: 600;
 }
+
+/* ==========================================
+   반응형 스타일 (기존 스타일 보강)
+   ========================================== */
+
+/* 반응형: 태블릿 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .chatbot-page {
+    height: calc(100vh - var(--gnb) - var(--hdr) - 24px);
+  }
+
+  .chatbot-fs-header {
+    padding: 14px 18px;
+  }
+
+  .chatbot-fs-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .chatbot-fs-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .chatbot-fs-text h2 {
+    font-size: 15px;
+  }
+
+  .chatbot-fs-messages {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+
+  .chatbot-fs-message {
+    max-width: 80%;
+  }
+
+  .chatbot-fs-bubble {
+    padding: 12px 16px;
+  }
+
+  .chatbot-fs-text {
+    font-size: 13px;
+  }
+
+  .chatbot-fs-quick {
+    padding: 14px 20px;
+  }
+
+  .chatbot-fs-quick-btns {
+    gap: 6px;
+  }
+
+  .chatbot-fs-quick-btn {
+    padding: 7px 12px;
+    font-size: 11px;
+  }
+
+  .chatbot-fs-input-area {
+    padding: 14px 20px;
+    gap: 10px;
+  }
+
+  .chatbot-fs-input {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .chatbot-fs-send-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .chatbot-fs-sidebar {
+    width: 260px;
+  }
+
+  .chatbot-fs-table th,
+  .chatbot-fs-table td {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
+/* 반응형: 모바일 (< 768px) - 기존 스타일 보강 */
+@media (max-width: 768px) {
+  .chatbot-page {
+    height: calc(100vh - var(--gnb) - var(--hdr) - 16px);
+  }
+
+  .chatbot-fs-header {
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .chatbot-fs-title {
+    gap: 10px;
+    flex: 1;
+  }
+
+  .chatbot-fs-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .chatbot-fs-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .chatbot-fs-text h2 {
+    font-size: 14px;
+  }
+
+  .chatbot-fs-text p {
+    font-size: 11px;
+  }
+
+  .chatbot-fs-status {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .chatbot-fs-message {
+    max-width: 90%;
+  }
+
+  .chatbot-fs-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .chatbot-fs-bubble {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .chatbot-fs-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .chatbot-fs-time {
+    font-size: 9px;
+  }
+
+  .chatbot-fs-quick-title {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .chatbot-fs-quick-btns {
+    gap: 6px;
+  }
+
+  .chatbot-fs-quick-btn {
+    padding: 10px 14px;
+    font-size: 12px;
+    min-height: 44px;
+    border-radius: 22px;
+  }
+
+  .chatbot-fs-input {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 22px;
+    min-height: 48px;
+  }
+
+  .chatbot-fs-send-btn {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .chatbot-fs-send-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .chatbot-fs-table th,
+  .chatbot-fs-table td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .chatbot-fs-alarm {
+    padding: 10px;
+    margin: 6px 0;
+  }
+
+  .chatbot-fs-actions {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .chatbot-fs-action-btn {
+    padding: 10px 14px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+
+  .chatbot-fs-typing {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+}
+
+/* 반응형: 소형 모바일 (< 480px) */
+@media (max-width: 480px) {
+  .chatbot-page {
+    height: calc(100vh - var(--gnb) - var(--hdr) - 8px);
+  }
+
+  .chatbot-fs-header {
+    padding: 10px 12px;
+  }
+
+  .chatbot-fs-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .chatbot-fs-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .chatbot-fs-text h2 {
+    font-size: 13px;
+  }
+
+  .chatbot-fs-text p {
+    display: none;
+  }
+
+  .chatbot-fs-messages {
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .chatbot-fs-message {
+    max-width: 95%;
+    gap: 8px;
+  }
+
+  .chatbot-fs-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .chatbot-fs-bubble {
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  .chatbot-fs-text {
+    font-size: 12px;
+  }
+
+  .chatbot-fs-quick {
+    padding: 10px 12px;
+  }
+
+  .chatbot-fs-quick-btns {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .chatbot-fs-quick-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .chatbot-fs-input-area {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .chatbot-fs-input {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .chatbot-fs-send-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .chatbot-fs-table {
+    font-size: 10px;
+  }
+
+  .chatbot-fs-table th,
+  .chatbot-fs-table td {
+    padding: 5px 6px;
+  }
+
+  .chatbot-fs-action-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .chatbot-fs-typing-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
